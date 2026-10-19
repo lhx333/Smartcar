@@ -1,0 +1,9 @@
+__pycache__/
+.venv/
+logs/
+*.py[cod]
+firmware/**/Objects/
+firmware/**/Listings/
+firmware/**/*.uvoptx
+firmware/**/*.uvguix*
+firmware/**/*.log
