@@ -227,7 +227,7 @@
 
 /* 左右轮各自的增量式 I 速度环：12% 起步，随后按实测速度调节占空比。
  * SPEED_KI 单位为占空比百分点/(m/s*s)，保持原速度环增益。 */
-#define DUTY_START_MIN              (12.0f)
+#define DUTY_START_MIN              (20.0f)
 #define V_CRUISE_MPS                (1.00f)
 #define DEBUG_MAX_SPEED_MPS         (2.00f)
 #define DEBUG_ACCEL_MPS2            (0.50f)
