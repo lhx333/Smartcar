@@ -1,0 +1,6 @@
+{
+  "src/navigation.c": "ae74c7098a5a3df55a2dc83b3d7b4a7b0255e121cca9751c0b9432a2e64d9d41",
+  "src/state_machine.c": "5f70000f5aa35a4bdcb175659abff92c30f7f74c0cdf22f6141c6bbb505d9163",
+  "inc/navigation.h": "bd0a9455d5490faacc6f092353af47b0b3b7efccd36613bc2753c6caf1cb3aa3",
+  "inc/my_common.h": "52d7b2716f84ae78506b15b656101a73e1ba88f04cffa04f9f078e9889f5bc56"
+}

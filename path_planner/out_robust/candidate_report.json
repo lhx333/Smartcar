@@ -1,0 +1,40 @@
+[
+  {
+    "minimum_clearance_m": 0.7609112383249509,
+    "minimum_radius_m": 1.2294692651605676,
+    "gap_crossings": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "field_bounds_checked": false,
+    "min_clearance_after_error_budget_m": 0.0758090214486879,
+    "final_position_error_bound_m": 0.3820043668538156,
+    "assumed_residual_bias_dps": 0.005,
+    "predicted_total_time_s": 104.12540667879361,
+    "score": 110.902835605577,
+    "score_type": "heuristic seconds, NOT calibrated expected race penalty",
+    "radius_candidate_m": 1.2,
+    "max_lateral_accel_mps2": 0.2293129895684554,
+    "max_lateral_jerk_mps3": 0.30995733455844915,
+    "max_longitudinal_jerk_mps3": 0.997002999000011,
+    "max_steer_rate_deg_s": 18.85568590299655,
+    "peak_speed_mps": 0.5939605953026558,
+    "time_dilation_factor": 0.6737179217005685,
+    "accepted": true
+  },
+  {
+    "radius": 1.4,
+    "accepted": false,
+    "reason": "no loop-free geometric candidate"
+  },
+  {
+    "radius": 1.6,
+    "accepted": false,
+    "reason": "no loop-free geometric candidate"
+  }
+]
