@@ -1,0 +1,7 @@
+mdk/Objects/
+mdk/Listings/
+*.uvoptx
+*.uvguix*
+*.log
+*.lock
+verification/*.exe

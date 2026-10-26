@@ -1,0 +1,11 @@
+/* Fixed settings for DEMO_pwm_test; independent of navigation configuration. */
+#ifndef VEHICLE_PARAMS_H
+#define VEHICLE_PARAMS_H
+#include "pwm_test_config.h"
+#define VEHICLE_PWM_START_MILLI_PERCENT PWM_TEST_DUTY_MILLI_PERCENT
+#define VEHICLE_PWM_MAX_MILLI_PERCENT   PWM_TEST_DUTY_MILLI_PERCENT
+#define VEHICLE_SERVO_MAX_MILLIDEG      (15000)
+#define VEHICLE_PWM_START_PERCENT      PWM_TEST_DUTY_PERCENT
+#define VEHICLE_PWM_MAX_PERCENT        PWM_TEST_DUTY_PERCENT
+#define VEHICLE_SERVO_MAX_DEG          (VEHICLE_SERVO_MAX_MILLIDEG / 1000.0f)
+#endif
