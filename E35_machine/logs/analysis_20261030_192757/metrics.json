@@ -1,0 +1,27 @@
+{
+  "quality": {
+    "source": "E:\\CARcar\\step31\\Smartcar-main\\E35_machine\\logs\\20261030_192757_265134.csv",
+    "source_rows_at_read": 115092,
+    "source_last_host_time_at_read": "2026-10-30T19:33:27.847",
+    "run_start_host_time": "2026-10-30T19:28:13.418",
+    "first_done_host_time": "2026-10-30T19:28:23.696",
+    "run_start_tick": 46484,
+    "first_done_tick": 48544,
+    "expected_run_samples": 2060,
+    "retained_run_samples": 1977,
+    "missing_run_ticks": 83,
+    "duplicate_tick_rows_in_window": 1914,
+    "conflicting_duplicate_ticks": 0,
+    "all_essential_columns_complete": true
+  },
+  "metrics": {
+    "run_duration_s": 10.3,
+    "wheel_speed_peak_mps": 1.7135,
+    "wheel_distance_observed_intervals_m": 11.260896249999998,
+    "distance_note": "Wheel-speed integral over observed intervals only; missing intervals omitted",
+    "maximum_abs_wheel_speed_difference_mps": 0.18599999999999994,
+    "state_after_run": "DONE",
+    "error_after_run": 0,
+    "phase_count": 5
+  }
+}

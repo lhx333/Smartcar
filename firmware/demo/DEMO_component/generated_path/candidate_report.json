@@ -1,0 +1,68 @@
+[
+  {
+    "minimum_clearance_m": 0.7612609591299742,
+    "minimum_radius_m": 1.2299056203130565,
+    "gap_crossings": [
+      1
+    ],
+    "field_bounds_checked": false,
+    "min_clearance_after_error_budget_m": 0.14600778998634337,
+    "final_position_error_bound_m": 0.10782041433385778,
+    "assumed_residual_bias_dps": 0.005,
+    "predicted_total_time_s": 50.36027189167627,
+    "score": 54.27493779629099,
+    "score_type": "heuristic seconds, NOT calibrated expected race penalty",
+    "radius_candidate_m": 1.2,
+    "max_lateral_accel_mps2": 0.1441089578988744,
+    "max_lateral_jerk_mps3": 0.10143988654041859,
+    "max_longitudinal_jerk_mps3": 0.9970029990000127,
+    "max_steer_rate_deg_s": 9.558894185325428,
+    "peak_speed_mps": 0.4483048065813396,
+    "time_dilation_factor": 0.9783256929944454,
+    "accepted": true
+  },
+  {
+    "minimum_clearance_m": 0.7682067930790775,
+    "minimum_radius_m": 1.4363113483008123,
+    "gap_crossings": [
+      1
+    ],
+    "field_bounds_checked": false,
+    "min_clearance_after_error_budget_m": 0.15233752160004774,
+    "final_position_error_bound_m": 0.11314211922072195,
+    "assumed_residual_bias_dps": 0.005,
+    "predicted_total_time_s": 56.62395145238271,
+    "score": 60.310173747102375,
+    "score_type": "heuristic seconds, NOT calibrated expected race penalty",
+    "radius_candidate_m": 1.4,
+    "max_lateral_accel_mps2": 0.10557195028621015,
+    "max_lateral_jerk_mps3": 0.07144200664187116,
+    "max_longitudinal_jerk_mps3": 0.9970029989999756,
+    "max_steer_rate_deg_s": 8.297436486470822,
+    "peak_speed_mps": 0.3894483471872767,
+    "time_dilation_factor": 0.835812649636153,
+    "accepted": true
+  },
+  {
+    "minimum_clearance_m": 0.7722833286150482,
+    "minimum_radius_m": 1.6429108741021823,
+    "gap_crossings": [
+      1
+    ],
+    "field_bounds_checked": false,
+    "min_clearance_after_error_budget_m": 0.15749714815018656,
+    "final_position_error_bound_m": 0.10726182376508342,
+    "assumed_residual_bias_dps": 0.005,
+    "predicted_total_time_s": 47.6154575179428,
+    "score": 51.10639466617946,
+    "score_type": "heuristic seconds, NOT calibrated expected race penalty",
+    "radius_candidate_m": 1.6,
+    "max_lateral_accel_mps2": 0.13117027982350912,
+    "max_lateral_jerk_mps3": 0.13039213524507906,
+    "max_longitudinal_jerk_mps3": 0.491802894076629,
+    "max_steer_rate_deg_s": 9.921286244083921,
+    "peak_speed_mps": 0.46426831614615705,
+    "time_dilation_factor": 1.0,
+    "accepted": true
+  }
+]

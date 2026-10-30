@@ -1579,4 +1579,5 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    from robust_planner import main as robust_main
+    raise SystemExit(robust_main())

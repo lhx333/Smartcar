@@ -1,0 +1,17 @@
+{
+  "length_m": 8.391222222608775,
+  "duration_s": 20.069006741545007,
+  "peak_speed_mps": 0.5021038100692513,
+  "curve_acceleration_samples": 101,
+  "cones_m": [
+    [
+      3.0,
+      0.0
+    ],
+    [
+      6.0,
+      0.0
+    ]
+  ],
+  "note": "Forward-only segment extracted from finite candidate planner; no global optimality claim."
+}

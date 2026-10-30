@@ -21,7 +21,7 @@ static float robust_wrap(float x) {
     return x;
 }
 static void robust_reset(RobustControl *c) {
-    memset(c,0,sizeof(*c)); c->valid=1; c->look=0.35f;
+    memset(c,0,sizeof(*c)); c->valid=1; c->look=ROBUST_LOOK_MIN;
 }
 static void robust_step(RobustControl *c,float x,float y,float yaw,float rate,float speed,float dt) {
     int i,best=c->index,j;
@@ -51,7 +51,7 @@ static void robust_step(RobustControl *c,float x,float y,float yaw,float rate,fl
     f=robust_clamp((progress-ROBUST_PATH[best].s)/fmaxf(ds,1e-6f),0,1);
     planned=ROBUST_PATH[best].v+f*(ROBUST_PATH[best+1].v-ROBUST_PATH[best].v);
     ld=ROBUST_PATH[best].look+f*(ROBUST_PATH[best+1].look-ROBUST_PATH[best].look);
-    ld=fminf(ld,robust_clamp(0.35f+0.50f*fabsf(speed),0.35f,0.60f));
+    ld=fminf(ld,robust_clamp(ROBUST_LOOK_MIN+ROBUST_LOOK_TIME*fabsf(speed),ROBUST_LOOK_MIN,ROBUST_LOOK_MAX));
     c->look+=robust_clamp(ld-c->look,-0.30f*dt,0.30f*dt);
     goal=fminf(progress+c->look,ROBUST_PATH[ROBUST_PATH_N-1].s);
     j=best;while(j<ROBUST_PATH_N-2 && ROBUST_PATH[j+1].s<goal)j++;

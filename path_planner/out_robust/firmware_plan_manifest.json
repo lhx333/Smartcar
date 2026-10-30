@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "barrels_input.csv": "e3712a8f5cf2947880aa0e73f0cedf178ac8aafd57f3ae3de52056e8ad6df16a",
+    "vehicle_config.json": "be9ae6ca7858ad9df3c978073f63095ba4afd0464af191dd2d34d12da43b7bcf",
+    "path_planner.py": "71ad669ab1c78c115a03b0f9b39a457b0c313acbb087c03107ae11162c1f4ca6",
+    "robust_planner.py": "91af1c2d9ffc2a50be43be892290c740da1d65880a80b920098f646bed91faf1"
+  },
+  "outputs": {
+    "robust_trajectory.h": "111191d6cdb05c406da14544b5599213ae176465a480dd77aa3a095ab49a0a07",
+    "path.json": "6b3264b5394ba13aaa33f16807c05bf3933d28f82f731fae490ff655d1134da4",
+    "trajectory.csv": "760850ac185a9eba656a30a62ce3b887fc1df8f269318787226adcaa09a04ebc"
+  }
+}

@@ -1,0 +1,5 @@
+PASS module 1: phase sequence, finite outputs, completion, command contract
+PASS module 2: phase sequence, finite outputs, completion, command contract
+PASS module 3: phase sequence, finite outputs, completion, command contract
+PASS module 4: phase sequence, finite outputs, completion, command contract
+PASS module 5: forward path generated, geometric/dynamic checks passed, curve acceleration exists

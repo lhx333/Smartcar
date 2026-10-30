@@ -1,0 +1,5 @@
+PASS module 1: boot/calibration/ARMED stay stopped; premature START rejected; fresh START required; STOP wins
+PASS module 2: boot/calibration/ARMED stay stopped; premature START rejected; fresh START required; STOP wins
+PASS module 3: boot/calibration/ARMED stay stopped; premature START rejected; fresh START required; STOP wins
+PASS module 4: boot/calibration/ARMED stay stopped; premature START rejected; fresh START required; STOP wins
+PASS module 5: boot/calibration/ARMED stay stopped; premature START rejected; fresh START required; STOP wins

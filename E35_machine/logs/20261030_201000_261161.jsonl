@@ -1,0 +1,151 @@
+{"host_time": "2026-10-30T20:10:00.331", "kind": "session", "data": {"protocol": 1, "tick_ms": 5, "fast_hz": 200}}
+{"host_time": "2026-10-30T20:10:00.331", "kind": "port", "data": {"name": "COM12", "baud": 115200}}
+{"host_time": "2026-10-30T20:10:00.332", "kind": "diagnostic", "data": {"tick32": 60400, "enc_l": 331305, "enc_r": 333221, "control_peak_cycles": 43135, "missed_ticks": 10, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-30T20:10:00.502", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-30T20:10:01.297", "kind": "diagnostic", "data": {"tick32": 60600, "enc_l": 331305, "enc_r": 333221, "control_peak_cycles": 43135, "missed_ticks": 10, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-30T20:10:01.330", "kind": "parser", "data": {"invalid_frames": 1}}
+{"host_time": "2026-10-30T20:10:01.501", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-30T20:10:02.297", "kind": "diagnostic", "data": {"tick32": 60800, "enc_l": 331305, "enc_r": 333221, "control_peak_cycles": 43135, "missed_ticks": 10, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-30T20:10:02.329", "kind": "parser", "data": {"invalid_frames": 1}}
+{"host_time": "2026-10-30T20:10:02.502", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-30T20:10:02.976", "kind": "tx", "data": "CALIBRATE [CRLF]"}
+{"host_time": "2026-10-30T20:10:02.984", "kind": "missing", "data": {"tick": 60939, "count": 1}}
+{"host_time": "2026-10-30T20:10:03.297", "kind": "diagnostic", "data": {"tick32": 61000, "enc_l": 331305, "enc_r": 333221, "control_peak_cycles": 43135, "missed_ticks": 10, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-30T20:10:03.330", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-30T20:10:03.501", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-30T20:10:04.297", "kind": "diagnostic", "data": {"tick32": 61200, "enc_l": 331305, "enc_r": 333221, "control_peak_cycles": 43135, "missed_ticks": 10, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-30T20:10:04.329", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-30T20:10:04.502", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-30T20:10:05.290", "kind": "diagnostic", "data": {"tick32": 61400, "enc_l": 331305, "enc_r": 333221, "control_peak_cycles": 43135, "missed_ticks": 10, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-30T20:10:05.328", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-30T20:10:05.393", "kind": "tx", "data": "CALIBRATE [CRLF]"}
+{"host_time": "2026-10-30T20:10:05.405", "kind": "missing", "data": {"tick": 61422, "count": 1}}
+{"host_time": "2026-10-30T20:10:05.501", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-30T20:10:06.300", "kind": "diagnostic", "data": {"tick32": 61600, "enc_l": 331305, "enc_r": 333221, "control_peak_cycles": 43135, "missed_ticks": 10, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-30T20:10:06.334", "kind": "parser", "data": {"invalid_frames": 3}}
+{"host_time": "2026-10-30T20:10:06.502", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-30T20:10:07.158", "kind": "tx", "data": "CALIBRATE [CRLF]"}
+{"host_time": "2026-10-30T20:10:07.295", "kind": "diagnostic", "data": {"tick32": 61800, "enc_l": 331305, "enc_r": 333221, "control_peak_cycles": 43135, "missed_ticks": 10, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-30T20:10:07.333", "kind": "parser", "data": {"invalid_frames": 3}}
+{"host_time": "2026-10-30T20:10:07.501", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-30T20:10:07.703", "kind": "missing", "data": {"tick": 61882, "count": 2}}
+{"host_time": "2026-10-30T20:10:08.291", "kind": "diagnostic", "data": {"tick32": 62000, "enc_l": 331305, "enc_r": 333221, "control_peak_cycles": 43135, "missed_ticks": 10, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-30T20:10:08.328", "kind": "parser", "data": {"invalid_frames": 5}}
+{"host_time": "2026-10-30T20:10:08.496", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-30T20:10:09.297", "kind": "diagnostic", "data": {"tick32": 62200, "enc_l": 331305, "enc_r": 333221, "control_peak_cycles": 43135, "missed_ticks": 10, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-30T20:10:09.329", "kind": "parser", "data": {"invalid_frames": 5}}
+{"host_time": "2026-10-30T20:10:09.496", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-30T20:10:10.036", "kind": "tx", "data": "START [CRLF]"}
+{"host_time": "2026-10-30T20:10:10.046", "kind": "missing", "data": {"tick": 62352, "count": 1}}
+{"host_time": "2026-10-30T20:10:10.297", "kind": "diagnostic", "data": {"tick32": 62400, "enc_l": 331305, "enc_r": 333221, "control_peak_cycles": 43135, "missed_ticks": 10, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-30T20:10:10.332", "kind": "parser", "data": {"invalid_frames": 6}}
+{"host_time": "2026-10-30T20:10:10.503", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-30T20:10:11.297", "kind": "diagnostic", "data": {"tick32": 62600, "enc_l": 331305, "enc_r": 333221, "control_peak_cycles": 43135, "missed_ticks": 10, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-30T20:10:11.335", "kind": "parser", "data": {"invalid_frames": 6}}
+{"host_time": "2026-10-30T20:10:11.502", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-30T20:10:11.570", "kind": "tx", "data": "START [CRLF]"}
+{"host_time": "2026-10-30T20:10:11.581", "kind": "event", "data": "CMD,START,RUN,0\r\n"}
+{"host_time": "2026-10-30T20:10:11.581", "kind": "event", "data": "RX,START,RECEIVED\r\n"}
+{"host_time": "2026-10-30T20:10:12.326", "kind": "diagnostic", "data": {"tick32": 62800, "enc_l": 340107, "enc_r": 341381, "control_peak_cycles": 43135, "missed_ticks": 10, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-30T20:10:12.340", "kind": "parser", "data": {"invalid_frames": 6}}
+{"host_time": "2026-10-30T20:10:12.501", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-30T20:10:13.297", "kind": "diagnostic", "data": {"tick32": 63000, "enc_l": 363908, "enc_r": 364991, "control_peak_cycles": 43135, "missed_ticks": 10, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-30T20:10:13.329", "kind": "parser", "data": {"invalid_frames": 6}}
+{"host_time": "2026-10-30T20:10:13.497", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-30T20:10:13.654", "kind": "missing", "data": {"tick": 63072, "count": 1}}
+{"host_time": "2026-10-30T20:10:14.297", "kind": "diagnostic", "data": {"tick32": 63200, "enc_l": 394676, "enc_r": 395675, "control_peak_cycles": 43135, "missed_ticks": 10, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-30T20:10:14.334", "kind": "parser", "data": {"invalid_frames": 6}}
+{"host_time": "2026-10-30T20:10:14.372", "kind": "missing", "data": {"tick": 63216, "count": 2}}
+{"host_time": "2026-10-30T20:10:14.499", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-30T20:10:14.762", "kind": "missing", "data": {"tick": 63294, "count": 3}}
+{"host_time": "2026-10-30T20:10:14.785", "kind": "missing", "data": {"tick": 63298, "count": 2}}
+{"host_time": "2026-10-30T20:10:14.990", "kind": "missing", "data": {"tick": 63339, "count": 2}}
+{"host_time": "2026-10-30T20:10:15.049", "kind": "missing", "data": {"tick": 63351, "count": 1}}
+{"host_time": "2026-10-30T20:10:15.086", "kind": "missing", "data": {"tick": 63359, "count": 1}}
+{"host_time": "2026-10-30T20:10:15.138", "kind": "missing", "data": {"tick": 63369, "count": 2}}
+{"host_time": "2026-10-30T20:10:15.194", "kind": "missing", "data": {"tick": 63380, "count": 2}}
+{"host_time": "2026-10-30T20:10:15.257", "kind": "missing", "data": {"tick": 63394, "count": 1}}
+{"host_time": "2026-10-30T20:10:15.295", "kind": "missing", "data": {"tick": 63400, "count": 1}}
+{"host_time": "2026-10-30T20:10:15.301", "kind": "diagnostic", "data": {"tick32": 63400, "enc_l": 428683, "enc_r": 429571, "control_peak_cycles": 43135, "missed_ticks": 10, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-30T20:10:15.330", "kind": "parser", "data": {"invalid_frames": 14}}
+{"host_time": "2026-10-30T20:10:15.400", "kind": "missing", "data": {"tick": 63421, "count": 2}}
+{"host_time": "2026-10-30T20:10:15.498", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-30T20:10:15.554", "kind": "missing", "data": {"tick": 63452, "count": 2}}
+{"host_time": "2026-10-30T20:10:15.597", "kind": "missing", "data": {"tick": 63461, "count": 1}}
+{"host_time": "2026-10-30T20:10:15.797", "kind": "missing", "data": {"tick": 63501, "count": 5}}
+{"host_time": "2026-10-30T20:10:16.009", "kind": "missing", "data": {"tick": 63543, "count": 1}}
+{"host_time": "2026-10-30T20:10:16.041", "kind": "missing", "data": {"tick": 63550, "count": 5}}
+{"host_time": "2026-10-30T20:10:16.084", "kind": "missing", "data": {"tick": 63558, "count": 2}}
+{"host_time": "2026-10-30T20:10:16.112", "kind": "missing", "data": {"tick": 63564, "count": 2}}
+{"host_time": "2026-10-30T20:10:16.165", "kind": "missing", "data": {"tick": 63574, "count": 2}}
+{"host_time": "2026-10-30T20:10:16.185", "kind": "missing", "data": {"tick": 63579, "count": 2}}
+{"host_time": "2026-10-30T20:10:16.214", "kind": "missing", "data": {"tick": 63584, "count": 1}}
+{"host_time": "2026-10-30T20:10:16.296", "kind": "diagnostic", "data": {"tick32": 63600, "enc_l": 463697, "enc_r": 464583, "control_peak_cycles": 43135, "missed_ticks": 10, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-30T20:10:16.317", "kind": "missing", "data": {"tick": 63605, "count": 2}}
+{"host_time": "2026-10-30T20:10:16.333", "kind": "parser", "data": {"invalid_frames": 21}}
+{"host_time": "2026-10-30T20:10:16.416", "kind": "missing", "data": {"tick": 63625, "count": 1}}
+{"host_time": "2026-10-30T20:10:16.469", "kind": "missing", "data": {"tick": 63635, "count": 1}}
+{"host_time": "2026-10-30T20:10:16.480", "kind": "missing", "data": {"tick": 63637, "count": 1}}
+{"host_time": "2026-10-30T20:10:16.525", "kind": "missing", "data": {"tick": 63646, "count": 6}}
+{"host_time": "2026-10-30T20:10:16.648", "kind": "missing", "data": {"tick": 63671, "count": 1}}
+{"host_time": "2026-10-30T20:10:16.658", "kind": "missing", "data": {"tick": 63673, "count": 1}}
+{"host_time": "2026-10-30T20:10:16.682", "kind": "missing", "data": {"tick": 63679, "count": 1}}
+{"host_time": "2026-10-30T20:10:16.740", "kind": "missing", "data": {"tick": 63690, "count": 1}}
+{"host_time": "2026-10-30T20:10:16.759", "kind": "missing", "data": {"tick": 63693, "count": 1}}
+{"host_time": "2026-10-30T20:10:16.829", "kind": "missing", "data": {"tick": 63707, "count": 1}}
+{"host_time": "2026-10-30T20:10:16.930", "kind": "missing", "data": {"tick": 63728, "count": 2}}
+{"host_time": "2026-10-30T20:10:17.033", "kind": "missing", "data": {"tick": 63748, "count": 1}}
+{"host_time": "2026-10-30T20:10:17.240", "kind": "missing", "data": {"tick": 63790, "count": 6}}
+{"host_time": "2026-10-30T20:10:17.294", "kind": "diagnostic", "data": {"tick32": 63800, "enc_l": 489299, "enc_r": 490062, "control_peak_cycles": 43135, "missed_ticks": 10, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 2}}
+{"host_time": "2026-10-30T20:10:17.329", "kind": "parser", "data": {"invalid_frames": 34}}
+{"host_time": "2026-10-30T20:10:17.441", "kind": "missing", "data": {"tick": 63830, "count": 1}}
+{"host_time": "2026-10-30T20:10:17.495", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-30T20:10:17.649", "kind": "missing", "data": {"tick": 63871, "count": 1}}
+{"host_time": "2026-10-30T20:10:17.851", "kind": "missing", "data": {"tick": 63912, "count": 1}}
+{"host_time": "2026-10-30T20:10:17.960", "kind": "missing", "data": {"tick": 63933, "count": 2}}
+{"host_time": "2026-10-30T20:10:18.059", "kind": "missing", "data": {"tick": 63953, "count": 1}}
+{"host_time": "2026-10-30T20:10:18.260", "kind": "missing", "data": {"tick": 63994, "count": 1}}
+{"host_time": "2026-10-30T20:10:18.296", "kind": "diagnostic", "data": {"tick32": 64000, "enc_l": 500112, "enc_r": 500865, "control_peak_cycles": 43135, "missed_ticks": 10, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 2}}
+{"host_time": "2026-10-30T20:10:18.334", "kind": "parser", "data": {"invalid_frames": 39}}
+{"host_time": "2026-10-30T20:10:18.361", "kind": "missing", "data": {"tick": 64014, "count": 1}}
+{"host_time": "2026-10-30T20:10:18.499", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-30T20:10:18.773", "kind": "missing", "data": {"tick": 64096, "count": 1}}
+{"host_time": "2026-10-30T20:10:19.289", "kind": "missing", "data": {"tick": 64199, "count": 2}}
+{"host_time": "2026-10-30T20:10:19.292", "kind": "diagnostic", "data": {"tick32": 64200, "enc_l": 502934, "enc_r": 503650, "control_peak_cycles": 43135, "missed_ticks": 10, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 2}}
+{"host_time": "2026-10-30T20:10:19.335", "kind": "parser", "data": {"invalid_frames": 41}}
+{"host_time": "2026-10-30T20:10:19.389", "kind": "missing", "data": {"tick": 64219, "count": 1}}
+{"host_time": "2026-10-30T20:10:19.488", "kind": "missing", "data": {"tick": 64240, "count": 2}}
+{"host_time": "2026-10-30T20:10:19.498", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-30T20:10:19.699", "kind": "missing", "data": {"tick": 64281, "count": 2}}
+{"host_time": "2026-10-30T20:10:19.729", "kind": "missing", "data": {"tick": 64287, "count": 2}}
+{"host_time": "2026-10-30T20:10:20.109", "kind": "missing", "data": {"tick": 64363, "count": 2}}
+{"host_time": "2026-10-30T20:10:20.215", "kind": "missing", "data": {"tick": 64384, "count": 2}}
+{"host_time": "2026-10-30T20:10:20.254", "kind": "missing", "data": {"tick": 64392, "count": 1}}
+{"host_time": "2026-10-30T20:10:20.293", "kind": "diagnostic", "data": {"tick32": 64400, "enc_l": 502936, "enc_r": 503654, "control_peak_cycles": 43135, "missed_ticks": 10, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 2}}
+{"host_time": "2026-10-30T20:10:20.329", "kind": "parser", "data": {"invalid_frames": 48}}
+{"host_time": "2026-10-30T20:10:20.415", "kind": "missing", "data": {"tick": 64424, "count": 1}}
+{"host_time": "2026-10-30T20:10:20.497", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-30T20:10:20.520", "kind": "missing", "data": {"tick": 64445, "count": 2}}
+{"host_time": "2026-10-30T20:10:20.617", "kind": "missing", "data": {"tick": 64465, "count": 1}}
+{"host_time": "2026-10-30T20:10:20.717", "kind": "missing", "data": {"tick": 64485, "count": 1}}
+{"host_time": "2026-10-30T20:10:20.753", "kind": "tx", "data": "STOP [CRLF]"}
+{"host_time": "2026-10-30T20:10:20.761", "kind": "missing", "data": {"tick": 64494, "count": 1}}
+{"host_time": "2026-10-30T20:10:20.990", "kind": "missing", "data": {"tick": 64540, "count": 3}}
+{"host_time": "2026-10-30T20:10:21.009", "kind": "missing", "data": {"tick": 64543, "count": 1}}
+{"host_time": "2026-10-30T20:10:21.133", "kind": "missing", "data": {"tick": 64568, "count": 2}}
+{"host_time": "2026-10-30T20:10:21.232", "kind": "missing", "data": {"tick": 64588, "count": 2}}
+{"host_time": "2026-10-30T20:10:21.294", "kind": "diagnostic", "data": {"tick32": 64600, "enc_l": 502937, "enc_r": 503654, "control_peak_cycles": 43135, "missed_ticks": 10, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 2}}
+{"host_time": "2026-10-30T20:10:21.334", "kind": "parser", "data": {"invalid_frames": 57}}
+{"host_time": "2026-10-30T20:10:21.340", "kind": "missing", "data": {"tick": 64609, "count": 2}}
+{"host_time": "2026-10-30T20:10:21.434", "kind": "tx", "data": "STOP [CRLF]"}
+{"host_time": "2026-10-30T20:10:21.444", "kind": "missing", "data": {"tick": 64631, "count": 2}}
+{"host_time": "2026-10-30T20:10:21.498", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-30T20:10:21.540", "kind": "missing", "data": {"tick": 64649, "count": 1}}
+{"host_time": "2026-10-30T20:10:21.688", "kind": "missing", "data": {"tick": 64679, "count": 1}}
+{"host_time": "2026-10-30T20:10:21.744", "kind": "missing", "data": {"tick": 64690, "count": 1}}
+{"host_time": "2026-10-30T20:10:21.947", "kind": "missing", "data": {"tick": 64731, "count": 1}}
+{"host_time": "2026-10-30T20:10:22.052", "kind": "missing", "data": {"tick": 64752, "count": 2}}
+{"host_time": "2026-10-30T20:10:22.153", "kind": "missing", "data": {"tick": 64772, "count": 1}}
+{"host_time": "2026-10-30T20:10:22.256", "kind": "missing", "data": {"tick": 64793, "count": 2}}
+{"host_time": "2026-10-30T20:10:22.291", "kind": "diagnostic", "data": {"tick32": 64800, "enc_l": 502930, "enc_r": 503675, "control_peak_cycles": 43135, "missed_ticks": 10, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 2}}
+{"host_time": "2026-10-30T20:10:22.329", "kind": "parser", "data": {"invalid_frames": 62}}

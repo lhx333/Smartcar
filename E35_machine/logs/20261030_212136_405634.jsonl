@@ -1,0 +1,4 @@
+{"host_time": "2026-10-30T21:21:36.407", "kind": "session", "data": {"protocol": 1, "tick_ms": 5, "fast_hz": 200}}
+{"host_time": "2026-10-30T21:21:36.407", "kind": "port", "data": {"name": "COM12", "baud": 115200}}
+{"host_time": "2026-10-30T21:21:36.940", "kind": "outage", "data": {"timeout_ms": 500}}
+{"host_time": "2026-10-30T21:21:38.294", "kind": "closed", "data": {}}

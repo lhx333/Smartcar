@@ -1,0 +1,104 @@
+{
+  "module": 4,
+  "vehicle": {
+    "vmax": 1.0,
+    "accel": 0.35,
+    "brake": 0.45,
+    "alat": 0.65,
+    "mu": 0.35,
+    "friction_use": 0.55,
+    "wheelbase": 0.2,
+    "wheel_angle_deg": 15.0,
+    "pwm_start_percent": 13.0,
+    "pwm_max_percent": 25.0,
+    "servo_max_deg": 15.0,
+    "speed_kp": 6.0,
+    "speed_ki": 3.0,
+    "speed_kd": 0.0,
+    "steer_rate_deg_s": 35.0,
+    "lat_jerk": 1.2,
+    "lon_jerk": 1.0,
+    "delay": 0.35,
+    "look_min": 0.35,
+    "look_max": 0.6,
+    "look_time": 0.5,
+    "body_radius": 0.269,
+    "cone_radius": 0.1,
+    "tracking_margin": 0.2,
+    "smooth_reserve": 0.12,
+    "smooth_sigma": 0.12,
+    "finish_runout": 0.6,
+    "touch_penalty_s": 1.0,
+    "knock_penalty_s": 3.0,
+    "missed_gap_penalty_s": 30.0,
+    "turn_weight_s": 0.3,
+    "clearance_weight_s": 1.0,
+    "bounds": null,
+    "residual_bias_dps": 0.005,
+    "initial_heading_deg": 0.1,
+    "initial_position_m": 0.03
+  },
+  "tests": {
+    "module": 4,
+    "pwm": {
+      "high_percent": 25.0,
+      "hold_high_s": 5.0,
+      "heading_kp_per_deg": 0.03,
+      "yaw_rate_kd_per_dps": 0.004,
+      "wheel_diff_k_per_mps": 0.5,
+      "max_steer_deg": 6.0
+    },
+    "speed": {
+      "target_mps": 0.5,
+      "hold_s": 3.0,
+      "accel_mps2": 0.2,
+      "decel_mps2": 0.3
+    },
+    "steering": {
+      "offsets_deg": [
+        0,
+        5,
+        10,
+        15,
+        0,
+        -5,
+        -10,
+        -15,
+        0
+      ],
+      "hold_s": 2.0,
+      "rate_deg_s": 10.0
+    },
+    "circle": {
+      "straight_s": 3.0,
+      "turn_deg": 8.0,
+      "target_yaw_deg": 45.0,
+      "speed1_mps": 0.4,
+      "speed2_mps": 0.6,
+      "hold1_s": 15.0,
+      "hold2_s": 4.0
+    },
+    "path": {
+      "cones_m": [
+        [
+          3.0,
+          0.0
+        ],
+        [
+          6.0,
+          0.0
+        ]
+      ],
+      "vmax_mps": 0.6,
+      "radius_m": 1.2,
+      "exit_straight_m": 1.0
+    },
+    "settle_hold_s": 0.3,
+    "settle_timeout_s": 8.0
+  },
+  "generated_header_sha256": {
+    "vehicle_params.h": "fd79c95bd387673e7a558cecf4367adef6d8c7e54b11b98d14efbd2398fbc9f8",
+    "component_config.h": "e8083e20fbd0b69f0e0611c2a34aabbe6fcbf2121f42600f0d78d62833abb040",
+    "robust_trajectory.h": "d23ec023f39eb652685829cfcb7d9e916e75a5987ee1cf5a2723bd1ea07f28cf"
+  }
+}

@@ -4,20 +4,20 @@
     "delay_s": 0.12,
     "initial_true_y_offset_m": 0.0,
     "status": "complete",
-    "duration_s": 103.705,
-    "finish_line_time_s": 102.21000000000001,
-    "peak_estimated_cross_track_m": 0.022108446806669235,
-    "min_true_cone_center_distance_m": 0.7453348064771201,
+    "duration_s": 108.38,
+    "finish_line_time_s": 106.89,
+    "peak_estimated_cross_track_m": 0.021352186799049377,
+    "min_true_cone_center_distance_m": 0.7459061273004897,
     "physical_contact": false,
     "robust_margin_violated": false,
     "successful_safe_finish": true,
     "final_true_position": [
-      -0.5420144300550365,
-      2.0000001057241286
+      -0.5416428311192373,
+      2.0000000670833704
     ],
     "final_estimated_position": [
-      -0.5420144300550365,
-      2.0000001057241286
+      -0.5416428311192373,
+      2.0000000670833704
     ]
   },
   {
@@ -25,20 +25,20 @@
     "delay_s": 0.25,
     "initial_true_y_offset_m": 0.0,
     "status": "complete",
-    "duration_s": 103.96000000000001,
-    "finish_line_time_s": 102.59,
-    "peak_estimated_cross_track_m": 0.01176454033702612,
-    "min_true_cone_center_distance_m": 0.7522692833448664,
+    "duration_s": 108.98,
+    "finish_line_time_s": 107.61,
+    "peak_estimated_cross_track_m": 0.010633956640958786,
+    "min_true_cone_center_distance_m": 0.753135901063192,
     "physical_contact": false,
     "robust_margin_violated": false,
     "successful_safe_finish": true,
     "final_true_position": [
-      -0.5419342835173576,
-      2.000000113649178
+      -0.5414263827093593,
+      2.0000000977546626
     ],
     "final_estimated_position": [
-      -0.5419342835173576,
-      2.000000113649178
+      -0.5414263827093593,
+      2.0000000977546626
     ]
   },
   {
@@ -46,20 +46,20 @@
     "delay_s": 0.12,
     "initial_true_y_offset_m": 0.0,
     "status": "complete",
-    "duration_s": 103.705,
-    "finish_line_time_s": 102.235,
-    "peak_estimated_cross_track_m": 0.022134246304631233,
-    "min_true_cone_center_distance_m": 0.7180050693513816,
+    "duration_s": 108.38,
+    "finish_line_time_s": 106.91,
+    "peak_estimated_cross_track_m": 0.02138349786400795,
+    "min_true_cone_center_distance_m": 0.7154156386949717,
     "physical_contact": false,
     "robust_margin_violated": false,
     "successful_safe_finish": true,
     "final_true_position": [
-      -0.5309086111806132,
-      2.1127985315434876
+      -0.5299606823645917,
+      2.1182759921460605
     ],
     "final_estimated_position": [
-      -0.542048310035616,
-      1.9999860644867842
+      -0.5419291380118809,
+      1.999985311991943
     ]
   },
   {
@@ -67,20 +67,20 @@
     "delay_s": 0.12,
     "initial_true_y_offset_m": 0.0,
     "status": "complete",
-    "duration_s": 103.705,
-    "finish_line_time_s": 102.26,
-    "peak_estimated_cross_track_m": 0.02216067537665367,
-    "min_true_cone_center_distance_m": 0.6764710260690425,
+    "duration_s": 108.375,
+    "finish_line_time_s": 106.935,
+    "peak_estimated_cross_track_m": 0.021410152316093445,
+    "min_true_cone_center_distance_m": 0.6709599675420783,
     "physical_contact": false,
     "robust_margin_violated": false,
     "successful_safe_finish": true,
     "final_true_position": [
-      -0.5187253985829509,
-      2.225530456987259
+      -0.5159963855094244,
+      2.2364534533461047
     ],
     "final_estimated_position": [
-      -0.5420821367869152,
-      1.999972139466316
+      -0.5411238035722078,
+      1.9999704856563942
     ]
   },
   {
@@ -88,20 +88,20 @@
     "delay_s": 0.12,
     "initial_true_y_offset_m": 0.0,
     "status": "complete",
-    "duration_s": 103.7,
-    "finish_line_time_s": 102.55,
-    "peak_estimated_cross_track_m": 0.02236701361835003,
-    "min_true_cone_center_distance_m": 0.33368746482609773,
+    "duration_s": 108.36500000000001,
+    "finish_line_time_s": 107.245,
+    "peak_estimated_cross_track_m": 0.021623479202389717,
+    "min_true_cone_center_distance_m": 0.3038161626826368,
     "physical_contact": true,
     "robust_margin_violated": true,
     "successful_safe_finish": false,
     "final_true_position": [
-      -0.3814552772418868,
-      3.123825796021378
+      -0.3680155374480112,
+      3.177711779031613
     ],
     "final_estimated_position": [
-      -0.5412626619051126,
-      1.999860005393202
+      -0.541180808108313,
+      1.9998524823481707
     ]
   },
   {
@@ -109,20 +109,20 @@
     "delay_s": 0.12,
     "initial_true_y_offset_m": 0.0,
     "status": "complete",
-    "duration_s": 103.7,
-    "finish_line_time_s": 103.26,
-    "peak_estimated_cross_track_m": 0.022627299651503563,
-    "min_true_cone_center_distance_m": 0.10392088398399027,
+    "duration_s": 108.355,
+    "finish_line_time_s": 108.045,
+    "peak_estimated_cross_track_m": 0.021894894540309906,
+    "min_true_cone_center_distance_m": 0.16474254912612177,
     "physical_contact": true,
     "robust_margin_violated": true,
     "successful_safe_finish": false,
     "final_true_position": [
-      -0.11495176970497681,
-      4.2330371206251804
+      -0.07724015631002044,
+      4.337969238448494
     ],
     "final_estimated_position": [
-      -0.5416007052770327,
-      1.9997205577394987
+      -0.5416811343951852,
+      1.9997058235907657
     ]
   },
   {
@@ -130,20 +130,20 @@
     "delay_s": 0.12,
     "initial_true_y_offset_m": 0.1,
     "status": "complete",
-    "duration_s": 103.705,
-    "finish_line_time_s": 102.21000000000001,
-    "peak_estimated_cross_track_m": 0.022108446806669235,
-    "min_true_cone_center_distance_m": 0.6557065084901864,
+    "duration_s": 108.38,
+    "finish_line_time_s": 106.89,
+    "peak_estimated_cross_track_m": 0.021352186799049377,
+    "min_true_cone_center_distance_m": 0.6562997473991031,
     "physical_contact": false,
     "robust_margin_violated": false,
     "successful_safe_finish": true,
     "final_true_position": [
-      -0.5420144300550365,
-      2.1000001057241326
+      -0.5416428311192373,
+      2.1000000670833745
     ],
     "final_estimated_position": [
-      -0.5420144300550365,
-      2.0000001057241286
+      -0.5416428311192373,
+      2.0000000670833704
     ]
   },
   {
@@ -151,20 +151,20 @@
     "delay_s": 0.12,
     "initial_true_y_offset_m": 0.0,
     "status": "complete",
-    "duration_s": 103.69500000000001,
+    "duration_s": 108.33,
     "finish_line_time_s": null,
-    "peak_estimated_cross_track_m": 0.023144738748669624,
-    "min_true_cone_center_distance_m": 0.0032935847173108514,
+    "peak_estimated_cross_track_m": 0.022439196705818176,
+    "min_true_cone_center_distance_m": 0.0430512831487189,
     "physical_contact": true,
     "robust_margin_violated": true,
     "successful_safe_finish": false,
     "final_true_position": [
-      0.7340095774465153,
-      6.372283216106191
+      0.85207161616901,
+      6.565120103096001
     ],
     "final_estimated_position": [
-      -0.5411833610306692,
-      1.9994397740934164
+      -0.5412019195145465,
+      1.9994099902468054
     ]
   }
 ]

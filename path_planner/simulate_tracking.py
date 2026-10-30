@@ -8,6 +8,7 @@ lib.tick.argtypes=[ctypes.c_float]*6+[ctypes.POINTER(ctypes.c_float)]
 lib.reset.argtypes=[]
 path=json.loads((root/'out_robust/path.json').read_text(encoding='utf-8'))
 barrels=[(x['x'],x['y']) for x in path['obstacles']]
+dynamics=path['dynamics']
 
 def run(bias=0.,lag=.12,offset=.0):
     lib.reset();out=(ctypes.c_float*5)();dt=.005
@@ -19,9 +20,10 @@ def run(bias=0.,lag=.12,offset=.0):
         peak_error=max(peak_error,float(out[2]))
         if not out[4]: status='tracking_fault';break
         buf.append((float(out[0]),float(out[1])));vref,turn=buf.popleft()
-        v+=max(-.45*dt,min(.35*dt,(vref-v)*dt/.25))
-        delta+=max(-math.radians(35)*dt,min(math.radians(35)*dt,(turn*math.radians(22)-delta)*dt/.10))
-        rate=v*math.tan(delta)/.26
+        v+=max(-dynamics['brake']*dt,min(dynamics['accel']*dt,(vref-v)*dt/.25))
+        slew=math.radians(dynamics['steer_rate_deg_s'])*dt
+        delta+=max(-slew,min(slew,(turn*math.radians(dynamics['wheel_angle_deg'])-delta)*dt/.10))
+        rate=v*math.tan(delta)/dynamics['wheelbase']
         yaw+=rate*dt;est_yaw+=(rate+math.radians(bias))*dt
         x+=v*math.cos(yaw)*dt;y+=v*math.sin(yaw)*dt
         nx+=v*math.cos(est_yaw)*dt;ny+=v*math.sin(est_yaw)*dt

@@ -20,7 +20,13 @@ class Dynamics:
     mu: float = 0.35
     friction_use: float = 0.55
     wheelbase: float = 0.26
-    wheel_angle_deg: float = 22.0
+    wheel_angle_deg: float = 15.0
+    pwm_start_percent: float = 13.0
+    pwm_max_percent: float = 25.0
+    servo_max_deg: float = 15.0
+    speed_kp: float = 6.0
+    speed_ki: float = 3.0
+    speed_kd: float = 0.0
     steer_rate_deg_s: float = 35.0
     lat_jerk: float = 1.2
     lon_jerk: float = 1.0
@@ -49,10 +55,18 @@ class Dynamics:
 def validate_config(d):
     for key,value in asdict(d).items():
         if key == 'bounds': continue
+        if key in ('speed_kp', 'speed_ki', 'speed_kd'):
+            if not isinstance(value, (int, float)) or not math.isfinite(value) or value < 0:
+                raise ValueError(f'{key} must be finite and nonnegative')
+            continue
         if not isinstance(value,(int,float)) or not math.isfinite(value) or value <= 0:
             raise ValueError(f'{key} must be finite and positive')
     if d.look_min > d.look_max or d.wheel_angle_deg >= 80 or d.friction_use > 1:
         raise ValueError('invalid lookahead / steering / friction limits')
+    if not 0 < d.pwm_start_percent <= d.pwm_max_percent <= 100:
+        raise ValueError('require 0 < pwm_start_percent <= pwm_max_percent <= 100')
+    if d.servo_max_deg > 20:
+        raise ValueError('servo_max_deg exceeds the calibrated +/-20 degree travel')
     if d.bounds is not None:
         if len(d.bounds)!=4 or not all(math.isfinite(x) for x in d.bounds):
             raise ValueError('bounds must be [xmin,xmax,ymin,ymax]')
@@ -266,7 +280,9 @@ def export(sol,d,prof,out):
         lines.append('    {'+', '.join(f'{v:.7f}f' for v in vals)+'},')
     lines+=['};','#define ROBUST_PATH_N ((int)(sizeof(ROBUST_PATH)/sizeof(ROBUST_PATH[0])))',
             f'#define ROBUST_WHEELBASE {d.wheelbase:.7f}f', f'#define ROBUST_ROAD_ANGLE_RAD {math.radians(d.wheel_angle_deg):.7f}f',
-            f'#define ROBUST_ACCEL {d.accel:.7f}f',f'#define ROBUST_BRAKE {d.brake:.7f}f','#endif']
+            f'#define ROBUST_ACCEL {d.accel:.7f}f',f'#define ROBUST_BRAKE {d.brake:.7f}f',
+            f'#define ROBUST_LOOK_MIN {d.look_min:.7f}f',f'#define ROBUST_LOOK_MAX {d.look_max:.7f}f',
+            f'#define ROBUST_LOOK_TIME {d.look_time:.7f}f','#endif']
     (out/'robust_trajectory.h').write_text('\n'.join(lines)+'\n',encoding='utf-8')
     # Legacy XY-only output is explicitly unsuitable for activating speed/lookahead.
     lines=['/* XY only: speed scheduling requires robust_trajectory.h + firmware bridge. */','static const float PATH_PTS[][2] = {']

@@ -1,0 +1,15 @@
+{"host_time": "2026-10-26T11:01:06.580", "kind": "session", "data": {"protocol": 1, "tick_ms": 5, "fast_hz": 200}}
+{"host_time": "2026-10-26T11:01:06.580", "kind": "port", "data": {"name": "COM12", "baud": 9600}}
+{"host_time": "2026-10-26T11:01:07.074", "kind": "outage", "data": {"timeout_ms": 500}}
+{"host_time": "2026-10-26T11:01:07.574", "kind": "parser", "data": {"invalid_frames": 39}}
+{"host_time": "2026-10-26T11:01:08.581", "kind": "parser", "data": {"invalid_frames": 84}}
+{"host_time": "2026-10-26T11:01:09.584", "kind": "parser", "data": {"invalid_frames": 160}}
+{"host_time": "2026-10-26T11:01:09.648", "kind": "tx", "data": "CALIBRATE [CRLF]"}
+{"host_time": "2026-10-26T11:01:10.575", "kind": "parser", "data": {"invalid_frames": 236}}
+{"host_time": "2026-10-26T11:01:11.627", "kind": "parser", "data": {"invalid_frames": 280}}
+{"host_time": "2026-10-26T11:01:12.635", "kind": "parser", "data": {"invalid_frames": 324}}
+{"host_time": "2026-10-26T11:01:13.620", "kind": "parser", "data": {"invalid_frames": 385}}
+{"host_time": "2026-10-26T11:01:14.624", "kind": "parser", "data": {"invalid_frames": 482}}
+{"host_time": "2026-10-26T11:01:15.626", "kind": "parser", "data": {"invalid_frames": 584}}
+{"host_time": "2026-10-26T11:01:16.624", "kind": "parser", "data": {"invalid_frames": 641}}
+{"host_time": "2026-10-26T11:01:16.897", "kind": "closed", "data": {}}

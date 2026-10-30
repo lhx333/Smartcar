@@ -1,203 +1,42 @@
-# 智能车绕桶路径规划器
+﻿# 智能车鲁棒路径与速度规划
 
-从 [barrels_input.csv](barrels_input.csv) 读取按行进顺序排列的桶坐标，规划出：
+运行：
 
-1. 从起点出发，左右交替绕过每一个桶；
-2. 绕过最后一个桶后，向最后一桶通过侧的**相反侧**做 180° 掉头：
-   - 最后一桶从左绕 → 从右侧掉头，回程在右侧；
-   - 最后一桶从右绕 → 从左侧掉头，回程在左侧；
-3. 沿桶列外侧的回程车道，回到发车坐标系 `x = 0` 的位置。
+```powershell
+python -B path_planner.py --input barrels_input.csv --out out_robust
+```
 
-代码里**没有写死任何桶坐标**。每次运行都会重新读取 `barrels_input.csv`，
-你只需要改这个 CSV。
+或双击 `生成我的路径.bat`。修改桶坐标后必须重新生成。`out_my` 保留原下载结果供比较，新的默认批处理输出是 `out_robust`。
 
----
-
-## 文件夹说明
+先阅读 [ROBUSTNESS.md](ROBUSTNESS.md)。车辆尺寸、轮胎抓地力、制动能力、车轮转角和残余零偏均尚未实测；当前数值是可复现的调试假设。
 
 | 文件 | 用途 |
 |---|---|
-| `barrels_input.csv` | **唯一输入**。每次把本次桶坐标写到这里 |
-| `生成我的路径.bat` | 双击运行，读取上面的 CSV，生成 `out_my` |
-| `path_planner.py` | 路径规划核心代码 |
-| `README.md` | 本说明 |
-| `out_my/` | 运行后自动生成的结果目录 |
+| path_planner.py | 原 Dubins 搜索几何内核；命令行默认调用鲁棒规划 |
+| robust_planner.py | 平滑、硬约束复查、多半径候选比较、速度/前视/漂移预算 |
+| vehicle_config.json | SI 单位的车体、动态、定位误差假设和场地边界 |
+| out_robust/path.svg | 新路径俯视图 |
+| out_robust/trajectory.csv | 弧长、位置、曲率、速度、时间、前视、加速度 |
+| out_robust/robust_trajectory.h | 固件所需的完整轨迹表，含速度与前视 |
+| out_robust/candidate_report.json | 成功及被拒绝的候选 |
+| firmware_patch/ | 与 step31 基线配套的导航/控制补丁；已接入 DEMO_new_path1 |
+| prepare_firmware.py | 为 DEMO_new_path1 校验/生成轨迹，并同步 JSON 参数和 C 头文件 |
+| apply_firmware_patch.py | 校验原文件 SHA256、备份后应用补丁 |
+| test_robust_planner.py | 几何、动态、坏输入、零偏与跟踪测试 |
+| simulate_tracking.py | 运行实际 C 跟踪器的简化车辆模型测试 |
 
-`out_my/` 每次运行会覆盖。如果想保留某一次结果，先把它改名或复制走。
+默认请求半径 1.20 m；只搜索 1.20/1.40/1.60 m，不自动缩小半径。默认 `--min-radius 1.0` 只用于额外限制，实际硬下限取它与 `--radius` 的较大者。无解时明确报错；禁止用小半径自动兜底。
 
----
+默认中心到桶中心的安全距离为 0.60 m，并增加 0.12 m 几何平滑预留。车体使用包络圆，`body_radius` 应不小于以定位参考点为中心包住整车的半径。场地边界在发车局部坐标系中填写 `bounds: [xmin,xmax,ymin,ymax]`；留空意味着未验证出界风险。
 
-## 1. 输入桶坐标
+坐标单位米、X 前、Y 左。桶必须按通过顺序输入、局部 X 递增，侧别严格交替。重复、过密、非有限坐标、错误侧别会拒绝。当前不支持任意二维乱序桶阵。
 
-用记事本或 Excel 打开 [barrels_input.csv](barrels_input.csv)。
+只复制 `path_array.txt` **不会启用速度表与新控制器**。补丁用法、参数单位、测试命令及限制见 ROBUSTNESS.md。
 
-第一行保留：
-
-```csv
-x,y
-```
-
-下面每行一个桶，按小车通过的先后顺序：
-
-```csv
-x,y
-<x1>,<y1>
-<x2>,<y2>
-<x3>,<y3>
-```
-
-规则：
-
-- 单位是 **m**；
-- `x` 向前，`y` 向左；
-- 起点是 `(0, 0)`，发车朝向 `+x`；
-- 一行一个桶，顺序不要打乱；
-- 空行会被跳过；
-- 用 Excel 修改后要“另存为 → CSV UTF-8”，不要保存成 `.xlsx`。
-
-默认第 1 个桶从左侧绕、第 2 个右侧、第 3 个左侧，依次交替。
-如果某一轮想固定从同一侧绕，可以在命令行加 `--sides`，例如：
+当前实际固件在 `E:\CARcar\demo1\DEMO_new_path1`。统一调参入口是 `vehicle_config.json`：其中 `speed_kp`、`speed_ki`、`speed_kd` 控制固件 AUTO 双轮增量 PID（默认 6、3、0），`pwm_start_percent`、`pwm_max_percent`、`servo_max_deg` 控制执行器，其他字段参与离线规划或生成轨迹。修改 JSON 后运行 `python -B prepare_firmware.py`，或直接构建该目录的 Keil 工程；编译前脚本会自动重新规划并生成 `vehicle_params.h` 和 `robust_trajectory.h`。然后重新编译并下载。MCU 不直接读取电脑上的 JSON。
 
 ```powershell
-python -B path_planner.py --input barrels_input.csv --out out_my --sides "L,L,L"
+python -B prepare_firmware.py
 ```
 
----
-
-## 2. 生成路径
-
-### 一键运行
-
-双击：
-
-[生成我的路径.bat](生成我的路径.bat)
-
-它会：
-
-1. 读取 `barrels_input.csv`；
-2. 计算路径；
-3. 输出到 `out_my/`；
-4. 自动打开 `out_my/path.svg`。
-
-窗口会停在结果处，不会一闪而过。
-
-### 命令行运行
-
-在 `path_planner` 目录下打开 PowerShell：
-
-```powershell
-python -B path_planner.py --input barrels_input.csv --out out_my
-```
-
-如果只想临时给点、不写 CSV，也可以：
-
-```powershell
-python -B path_planner.py --points "x1,y1 x2,y2 x3,y3" --out out_my
-```
-
-### 双击 bat 仍然闪退
-
-在 `path_planner` 文件夹的地址栏输入 `cmd` 回车，然后运行：
-
-```bat
-生成我的路径.bat
-```
-
-窗口不会自动关闭，可以把最后几行报错发出来。
-
----
-
-## 3. 常用参数
-
-| 参数 | 默认 | 含义 |
-|---|---:|---|
-| `--clearance` | `0.45` | 路径中心到桶中心的最小安全距离，m |
-| `--max-offset` | `1.20` | 通过点离桶中心的最大横向距离，m |
-| `--corridor` | `1.60` | 绕桶段离“起点—桶列”折线的最大距离，m；`0` 关闭 |
-| `--radius` | `1.00` | 目标最小转弯半径，m |
-| `--min-radius` | `0.55` | 自动降半径的下限，m |
-| `--uturn-radius` | `1.20` | 最后 180° 掉头半径，m |
-| `--exit` | `0.80` | 最后一桶到掉头起点的前向距离，m |
-| `--first-side` | `left` | 第一个桶从左侧还是右侧绕 |
-| `--sides` | 自动 | 逐个指定通过侧，如 `"L,R,L,R"` |
-| `--heading-step` | `10` | 通过点切线角搜索步长，度 |
-| `--heading-span` | `50` | 通过点切线角搜索半宽，度 |
-| `--max-array-points` | `240` | 输出的 C 数组最多点数 |
-
-想让转弯更缓，可以试：
-
-```powershell
-python -B path_planner.py --input barrels_input.csv --out out_my `
-  --radius 1.2 --uturn-radius 1.4
-```
-
-桶距很密时，目标半径可能几何上不可行，程序会自动降低半径并打印警告。
-这时应加大桶距或降低车速。
-
----
-
-## 4. 输出文件
-
-运行后 `out_my/` 里会有：
-
-### `path_array.txt`
-
-可直接替换固件 `navigation.c` 里的 `PATH_PTS` 数组：
-
-```c
-static const float PATH_PTS[][2] =
-{
-    {  0.0000f,  0.0000f },  /*   0 */
-    ...
-};
-```
-
-`PATH_N` 由 `sizeof` 自动计算，不用改。
-
-### `path.svg`
-
-俯视图：
-
-- 红色桶和安全圆；
-- 紫色菱形：规划通过点；
-- 蓝色：绕桶段；
-- 橙色：180° 掉头；
-- 绿色：回程；
-- 起点 S、终点 E；
-- 本次的长度、最小半径、最小桶距等统计。
-
-### `path.csv`
-
-密集路径点，包含：
-
-```text
-index,x_m,y_m,heading_deg,s_m,curvature_1pm,segment
-```
-
-`segment` 为 `outbound`、`uturn` 或 `return`。
-
-### `path.json`
-
-本次输入的桶坐标、通过点、完整路径和统计，便于回放或二次处理。
-
----
-
-## 5. 算法简述
-
-- 每个桶用相邻桶坐标估计局部行进方向；
-- 在桶的左侧或右侧取通过点，横向距离在 `clearance` 和 `max_offset` 之间搜索；
-- 通过点切线角在局部方向 ±`heading_span` 内搜索；
-- 相邻候选之间用 **Dubins 圆弧—直线—圆弧** 连接，圆弧半径不小于 `--radius`；
-- 用动态规划选总长度最短的组合；
-- 每一步都检查到所有桶的安全距离，并限制绕桶段离桶列的横向偏离；
-- 最后从最后一桶向前 `--exit` 米，再按“相反侧”规则做 180° 掉头并返回。
-
----
-
-## 6. 注意
-
-- `clearance` 是路径中心到桶中心的距离，应包含桶半径、车身半宽和控制误差；
-- 上车先低速，路径几何可行不等于实车能完全跟上；
-- 回程终点是 `(0, 回程车道 y)`，不是精确回到 `(0,0)`；
-- 路径切线连续，但圆弧和直线交接处曲率会跳变，实车舵机斜率限制会平滑它；
-- 桶距过密时可能无解，这是几何限制，不是调参能完全解决的。
+此命令只更新生成文件；运行时的 C 源码已经放入 DEMO_new_path1。`wheel_angle_deg` 当前为 15°，代表满 turn 对应的前轮角度假设，与舵机摇臂 `servo_max_deg` 是两个独立标定量。详细操作见固件目录 `README_new_path1.md`。

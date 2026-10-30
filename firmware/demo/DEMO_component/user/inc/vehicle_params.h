@@ -1,0 +1,13 @@
+/* Generated: shared vehicle_config.json */
+#ifndef VEHICLE_PARAMS_H
+#define VEHICLE_PARAMS_H
+#define VEHICLE_PWM_START_MILLI_PERCENT (13000)
+#define VEHICLE_PWM_MAX_MILLI_PERCENT (25000)
+#define VEHICLE_SERVO_MAX_MILLIDEG (15000)
+#define VEHICLE_PWM_START_PERCENT (13.0f)
+#define VEHICLE_PWM_MAX_PERCENT (25.0f)
+#define VEHICLE_SERVO_MAX_DEG (15.0f)
+#define VEHICLE_SPEED_KP (6.0f)
+#define VEHICLE_SPEED_KI (3.0f)
+#define VEHICLE_SPEED_KD (0.0f)
+#endif

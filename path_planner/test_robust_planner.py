@@ -23,6 +23,12 @@ class RobustTests(unittest.TestCase):
     def test_invalid_dynamics(self):
         for x in [float('nan'),0,-1,float('inf')]:
             with self.assertRaises(ValueError):r.validate_config(r.Dynamics(vmax=x))
+        for settings in [dict(pwm_start_percent=26,pwm_max_percent=25),
+                         dict(pwm_max_percent=101),dict(servo_max_deg=21),
+                         dict(servo_max_deg=float('nan')),
+                         dict(speed_kp=-1),dict(speed_ki=float('nan')),
+                         dict(speed_kd=float('inf'))]:
+            with self.assertRaises(ValueError):r.validate_config(r.Dynamics(**settings))
     def run_plan(self,points,*extra):
         with tempfile.TemporaryDirectory() as out,contextlib.redirect_stdout(io.StringIO()),contextlib.redirect_stderr(io.StringIO()):
             result=r.main(['--points',points,'--out',out,'--radii','1.2',*extra])

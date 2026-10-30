@@ -1,21 +1,13 @@
 @echo off
 chcp 65001 >nul
 cd /d "%~dp0"
-echo Reading barrels_input.csv ...
-echo.
-python -B path_planner.py --input barrels_input.csv --out out_my
+python -B prepare_firmware.py
 if errorlevel 1 goto failed
-echo.
-echo Done. Opening out_my\path.svg ...
-start "" "out_my\path.svg"
-echo.
-echo C array: out_my\path_array.txt
-echo Copy it into navigation.c when you are ready.
+start "" "out_robust\path.svg"
+echo DEMO_new_path1 headers updated. Rebuild its Keil project before downloading.
 pause
 exit /b 0
-
 :failed
-echo.
-echo Planning failed. Check the messages above and barrels_input.csv.
+echo Planning rejected. Existing outputs may belong to an older run.
 pause
 exit /b 1

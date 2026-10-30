@@ -1,0 +1,5 @@
+{"host_time": "2026-10-26T11:02:55.039", "kind": "session", "data": {"protocol": 1, "tick_ms": 5, "fast_hz": 200}}
+{"host_time": "2026-10-26T11:02:55.039", "kind": "port", "data": {"name": "COM12", "baud": 115200}}
+{"host_time": "2026-10-26T11:02:55.581", "kind": "outage", "data": {"timeout_ms": 500}}
+{"host_time": "2026-10-26T11:02:57.546", "kind": "tx", "data": "CALIBRATE [CRLF]"}
+{"host_time": "2026-10-26T11:03:55.587", "kind": "closed", "data": {}}

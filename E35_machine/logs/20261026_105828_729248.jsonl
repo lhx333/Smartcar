@@ -1,0 +1,189 @@
+{"host_time": "2026-10-26T10:58:28.736", "kind": "session", "data": {"protocol": 1, "tick_ms": 5, "fast_hz": 200}}
+{"host_time": "2026-10-26T10:58:28.736", "kind": "port", "data": {"name": "COM12", "baud": 115200}}
+{"host_time": "2026-10-26T10:58:28.874", "kind": "event", "data": "CALIBRATION,IDLE,0\r\n"}
+{"host_time": "2026-10-26T10:58:28.929", "kind": "diagnostic", "data": {"tick32": 12200, "enc_l": 63, "enc_r": 482, "control_peak_cycles": 27136, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:58:29.731", "kind": "parser", "data": {"invalid_frames": 1}}
+{"host_time": "2026-10-26T10:58:29.868", "kind": "event", "data": "CALIBRATION,IDLE,0\r\n"}
+{"host_time": "2026-10-26T10:58:29.868", "kind": "diagnostic", "data": {"tick32": 12400, "enc_l": 63, "enc_r": 482, "control_peak_cycles": 27136, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:58:30.739", "kind": "parser", "data": {"invalid_frames": 1}}
+{"host_time": "2026-10-26T10:58:30.859", "kind": "event", "data": "CALIBRATION,IDLE,0\r\n"}
+{"host_time": "2026-10-26T10:58:30.859", "kind": "diagnostic", "data": {"tick32": 12600, "enc_l": 63, "enc_r": 482, "control_peak_cycles": 27136, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:58:31.733", "kind": "parser", "data": {"invalid_frames": 1}}
+{"host_time": "2026-10-26T10:58:31.871", "kind": "event", "data": "CALIBRATION,IDLE,0\r\n"}
+{"host_time": "2026-10-26T10:58:31.871", "kind": "diagnostic", "data": {"tick32": 12800, "enc_l": 63, "enc_r": 482, "control_peak_cycles": 27136, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:58:32.736", "kind": "parser", "data": {"invalid_frames": 1}}
+{"host_time": "2026-10-26T10:58:32.873", "kind": "event", "data": "CALIBRATION,IDLE,0\r\n"}
+{"host_time": "2026-10-26T10:58:32.879", "kind": "diagnostic", "data": {"tick32": 13000, "enc_l": 63, "enc_r": 482, "control_peak_cycles": 27136, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:58:33.380", "kind": "tx", "data": "CALIBRATE [CRLF]"}
+{"host_time": "2026-10-26T10:58:33.741", "kind": "parser", "data": {"invalid_frames": 1}}
+{"host_time": "2026-10-26T10:58:33.870", "kind": "diagnostic", "data": {"tick32": 13200, "enc_l": 63, "enc_r": 482, "control_peak_cycles": 27136, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:58:33.875", "kind": "event", "data": "CALIBRATION,IDLE,0\r\n"}
+{"host_time": "2026-10-26T10:58:34.731", "kind": "parser", "data": {"invalid_frames": 1}}
+{"host_time": "2026-10-26T10:58:34.869", "kind": "event", "data": "CALIBRATION,IDLE,0\r\n"}
+{"host_time": "2026-10-26T10:58:34.869", "kind": "diagnostic", "data": {"tick32": 13400, "enc_l": 63, "enc_r": 482, "control_peak_cycles": 27136, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:58:35.050", "kind": "tx", "data": "CALIBRATE [CRLF]"}
+{"host_time": "2026-10-26T10:58:35.052", "kind": "missing", "data": {"tick": 13438, "count": 1}}
+{"host_time": "2026-10-26T10:58:35.739", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:58:35.871", "kind": "diagnostic", "data": {"tick32": 13600, "enc_l": 63, "enc_r": 482, "control_peak_cycles": 27136, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:58:35.871", "kind": "event", "data": "CALIBRATION,IDLE,0\r\n"}
+{"host_time": "2026-10-26T10:58:36.469", "kind": "tx", "data": "CALIBRATE [CRLF]"}
+{"host_time": "2026-10-26T10:58:36.478", "kind": "event", "data": "RX,CALIBRATE,RECEIVED\r\n"}
+{"host_time": "2026-10-26T10:58:36.478", "kind": "event", "data": "CALIBRATION,START,0\r\n"}
+{"host_time": "2026-10-26T10:58:36.478", "kind": "event", "data": "CMD,CALIBRATE,INIT,1\r\n"}
+{"host_time": "2026-10-26T10:58:36.729", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:58:36.859", "kind": "diagnostic", "data": {"tick32": 13800, "enc_l": 63, "enc_r": 482, "control_peak_cycles": 27136, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:58:36.982", "kind": "event", "data": "CALIBRATION,PROGRESS,5\r\n"}
+{"host_time": "2026-10-26T10:58:37.472", "kind": "event", "data": "CALIBRATION,PROGRESS,10\r\n"}
+{"host_time": "2026-10-26T10:58:37.730", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:58:37.872", "kind": "diagnostic", "data": {"tick32": 14000, "enc_l": 63, "enc_r": 482, "control_peak_cycles": 27136, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:58:37.968", "kind": "event", "data": "CALIBRATION,PROGRESS,15\r\n"}
+{"host_time": "2026-10-26T10:58:38.479", "kind": "event", "data": "CALIBRATION,PROGRESS,20\r\n"}
+{"host_time": "2026-10-26T10:58:38.731", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:58:38.862", "kind": "diagnostic", "data": {"tick32": 14200, "enc_l": 63, "enc_r": 482, "control_peak_cycles": 27136, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:58:38.975", "kind": "event", "data": "CALIBRATION,PROGRESS,25\r\n"}
+{"host_time": "2026-10-26T10:58:39.472", "kind": "event", "data": "CALIBRATION,PROGRESS,30\r\n"}
+{"host_time": "2026-10-26T10:58:39.734", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:58:39.862", "kind": "diagnostic", "data": {"tick32": 14400, "enc_l": 63, "enc_r": 482, "control_peak_cycles": 27136, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:58:39.976", "kind": "event", "data": "CALIBRATION,PROGRESS,35\r\n"}
+{"host_time": "2026-10-26T10:58:40.478", "kind": "event", "data": "CALIBRATION,PROGRESS,40\r\n"}
+{"host_time": "2026-10-26T10:58:40.731", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:58:40.872", "kind": "diagnostic", "data": {"tick32": 14600, "enc_l": 63, "enc_r": 482, "control_peak_cycles": 27136, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:58:40.979", "kind": "event", "data": "CALIBRATION,PROGRESS,45\r\n"}
+{"host_time": "2026-10-26T10:58:41.478", "kind": "event", "data": "CALIBRATION,PROGRESS,50\r\n"}
+{"host_time": "2026-10-26T10:58:41.734", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:58:41.876", "kind": "diagnostic", "data": {"tick32": 14800, "enc_l": 63, "enc_r": 482, "control_peak_cycles": 27136, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:58:41.972", "kind": "event", "data": "CALIBRATION,PROGRESS,55\r\n"}
+{"host_time": "2026-10-26T10:58:42.468", "kind": "event", "data": "CALIBRATION,PROGRESS,60\r\n"}
+{"host_time": "2026-10-26T10:58:42.729", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:58:42.868", "kind": "diagnostic", "data": {"tick32": 15000, "enc_l": 63, "enc_r": 482, "control_peak_cycles": 27136, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:58:42.978", "kind": "event", "data": "CALIBRATION,PROGRESS,65\r\n"}
+{"host_time": "2026-10-26T10:58:43.478", "kind": "event", "data": "CALIBRATION,PROGRESS,70\r\n"}
+{"host_time": "2026-10-26T10:58:43.733", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:58:43.872", "kind": "diagnostic", "data": {"tick32": 15200, "enc_l": 63, "enc_r": 482, "control_peak_cycles": 27136, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:58:43.978", "kind": "event", "data": "CALIBRATION,PROGRESS,75\r\n"}
+{"host_time": "2026-10-26T10:58:44.476", "kind": "event", "data": "CALIBRATION,PROGRESS,80\r\n"}
+{"host_time": "2026-10-26T10:58:44.734", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:58:44.873", "kind": "diagnostic", "data": {"tick32": 15400, "enc_l": 63, "enc_r": 482, "control_peak_cycles": 27136, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:58:44.971", "kind": "event", "data": "CALIBRATION,PROGRESS,85\r\n"}
+{"host_time": "2026-10-26T10:58:45.471", "kind": "event", "data": "CALIBRATION,PROGRESS,90\r\n"}
+{"host_time": "2026-10-26T10:58:45.740", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:58:45.867", "kind": "diagnostic", "data": {"tick32": 15600, "enc_l": 63, "enc_r": 482, "control_peak_cycles": 27136, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:58:45.971", "kind": "event", "data": "CALIBRATION,PROGRESS,95\r\n"}
+{"host_time": "2026-10-26T10:58:46.473", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:58:46.730", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:58:46.876", "kind": "diagnostic", "data": {"tick32": 15800, "enc_l": 63, "enc_r": 482, "control_peak_cycles": 47810, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:58:47.478", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:58:47.730", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:58:47.864", "kind": "diagnostic", "data": {"tick32": 16000, "enc_l": 63, "enc_r": 482, "control_peak_cycles": 47810, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:58:48.477", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:58:48.735", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:58:48.865", "kind": "diagnostic", "data": {"tick32": 16200, "enc_l": 63, "enc_r": 482, "control_peak_cycles": 47810, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:58:49.477", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:58:49.731", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:58:49.865", "kind": "diagnostic", "data": {"tick32": 16400, "enc_l": 63, "enc_r": 482, "control_peak_cycles": 47810, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:58:50.478", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:58:50.735", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:58:50.865", "kind": "diagnostic", "data": {"tick32": 16600, "enc_l": 63, "enc_r": 482, "control_peak_cycles": 47810, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:58:51.474", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:58:51.567", "kind": "tx", "data": "START [CRLF]"}
+{"host_time": "2026-10-26T10:58:51.579", "kind": "event", "data": "CMD,START,RUN,0\r\n"}
+{"host_time": "2026-10-26T10:58:51.579", "kind": "event", "data": "RX,START,RECEIVED\r\n"}
+{"host_time": "2026-10-26T10:58:51.734", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:58:51.865", "kind": "diagnostic", "data": {"tick32": 16800, "enc_l": 63, "enc_r": 482, "control_peak_cycles": 53516, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:58:52.473", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:58:52.730", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:58:52.876", "kind": "diagnostic", "data": {"tick32": 17000, "enc_l": 65, "enc_r": 485, "control_peak_cycles": 53516, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:58:53.475", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:58:53.730", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:58:53.866", "kind": "diagnostic", "data": {"tick32": 17200, "enc_l": 65, "enc_r": 485, "control_peak_cycles": 53516, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:58:54.478", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:58:54.740", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:58:54.870", "kind": "diagnostic", "data": {"tick32": 17400, "enc_l": 65, "enc_r": 485, "control_peak_cycles": 53516, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:58:55.464", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:58:55.736", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:58:55.876", "kind": "diagnostic", "data": {"tick32": 17600, "enc_l": 65, "enc_r": 485, "control_peak_cycles": 53516, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:58:56.477", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:58:56.730", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:58:56.868", "kind": "diagnostic", "data": {"tick32": 17800, "enc_l": 65, "enc_r": 485, "control_peak_cycles": 53516, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:58:57.475", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:58:57.733", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:58:57.869", "kind": "diagnostic", "data": {"tick32": 18000, "enc_l": 65, "enc_r": 485, "control_peak_cycles": 53516, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:58:58.470", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:58:58.730", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:58:58.872", "kind": "diagnostic", "data": {"tick32": 18200, "enc_l": 65, "enc_r": 485, "control_peak_cycles": 53516, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:58:59.478", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:58:59.730", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:58:59.873", "kind": "diagnostic", "data": {"tick32": 18400, "enc_l": 65, "enc_r": 485, "control_peak_cycles": 53516, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:59:00.477", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:59:00.730", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:59:00.864", "kind": "diagnostic", "data": {"tick32": 18600, "enc_l": 65, "enc_r": 485, "control_peak_cycles": 53516, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:59:01.476", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:59:01.745", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:59:01.873", "kind": "diagnostic", "data": {"tick32": 18800, "enc_l": 65, "enc_r": 485, "control_peak_cycles": 53516, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:59:02.477", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:59:02.795", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:59:02.876", "kind": "diagnostic", "data": {"tick32": 19000, "enc_l": 65, "enc_r": 485, "control_peak_cycles": 53516, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:59:03.478", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:59:03.799", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:59:03.873", "kind": "diagnostic", "data": {"tick32": 19200, "enc_l": 65, "enc_r": 485, "control_peak_cycles": 53516, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:59:04.477", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:59:04.792", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:59:04.872", "kind": "diagnostic", "data": {"tick32": 19400, "enc_l": 65, "enc_r": 485, "control_peak_cycles": 53516, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:59:05.473", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:59:05.805", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:59:05.867", "kind": "diagnostic", "data": {"tick32": 19600, "enc_l": 65, "enc_r": 485, "control_peak_cycles": 53516, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:59:06.477", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:59:06.799", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:59:06.875", "kind": "diagnostic", "data": {"tick32": 19800, "enc_l": 65, "enc_r": 485, "control_peak_cycles": 53516, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:59:07.475", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:59:07.794", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:59:07.868", "kind": "diagnostic", "data": {"tick32": 20000, "enc_l": 65, "enc_r": 485, "control_peak_cycles": 53516, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:59:08.473", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:59:08.794", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:59:08.869", "kind": "diagnostic", "data": {"tick32": 20200, "enc_l": 65, "enc_r": 485, "control_peak_cycles": 53516, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:59:09.478", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:59:09.800", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:59:09.873", "kind": "diagnostic", "data": {"tick32": 20400, "enc_l": 65, "enc_r": 485, "control_peak_cycles": 53516, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:59:10.472", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:59:10.795", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:59:10.872", "kind": "diagnostic", "data": {"tick32": 20600, "enc_l": 65, "enc_r": 485, "control_peak_cycles": 53516, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:59:11.473", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:59:11.794", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:59:11.871", "kind": "diagnostic", "data": {"tick32": 20800, "enc_l": 65, "enc_r": 485, "control_peak_cycles": 53516, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:59:12.477", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:59:12.799", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:59:12.874", "kind": "diagnostic", "data": {"tick32": 21000, "enc_l": 65, "enc_r": 485, "control_peak_cycles": 53516, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:59:13.471", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:59:13.794", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:59:13.869", "kind": "diagnostic", "data": {"tick32": 21200, "enc_l": 65, "enc_r": 485, "control_peak_cycles": 53516, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:59:14.472", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:59:14.792", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:59:14.868", "kind": "diagnostic", "data": {"tick32": 21400, "enc_l": 65, "enc_r": 485, "control_peak_cycles": 53516, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:59:15.477", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:59:15.804", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:59:15.864", "kind": "diagnostic", "data": {"tick32": 21600, "enc_l": 65, "enc_r": 485, "control_peak_cycles": 53516, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:59:16.477", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:59:16.795", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:59:16.859", "kind": "diagnostic", "data": {"tick32": 21800, "enc_l": 65, "enc_r": 485, "control_peak_cycles": 53516, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:59:17.475", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:59:17.800", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:59:17.871", "kind": "diagnostic", "data": {"tick32": 22000, "enc_l": 65, "enc_r": 485, "control_peak_cycles": 53516, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:59:18.477", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:59:18.794", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:59:18.866", "kind": "diagnostic", "data": {"tick32": 22200, "enc_l": 65, "enc_r": 485, "control_peak_cycles": 53516, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:59:19.477", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:59:19.794", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:59:19.868", "kind": "diagnostic", "data": {"tick32": 22400, "enc_l": 65, "enc_r": 485, "control_peak_cycles": 53516, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:59:20.473", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:59:20.799", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:59:20.872", "kind": "diagnostic", "data": {"tick32": 22600, "enc_l": 65, "enc_r": 485, "control_peak_cycles": 53516, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:59:21.469", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:59:21.795", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:59:21.864", "kind": "diagnostic", "data": {"tick32": 22800, "enc_l": 65, "enc_r": 485, "control_peak_cycles": 53516, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:59:22.476", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:59:22.796", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:59:22.863", "kind": "diagnostic", "data": {"tick32": 23000, "enc_l": 65, "enc_r": 485, "control_peak_cycles": 53516, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:59:23.477", "kind": "event", "data": "CALIBRATION,OK,100\r\n"}
+{"host_time": "2026-10-26T10:59:23.803", "kind": "parser", "data": {"invalid_frames": 2}}
+{"host_time": "2026-10-26T10:59:23.868", "kind": "diagnostic", "data": {"tick32": 23200, "enc_l": 64, "enc_r": 484, "control_peak_cycles": 53516, "missed_ticks": 11, "tx_dropped": 0, "tx_errors": 0, "rx_errors": 1}}
+{"host_time": "2026-10-26T10:59:24.110", "kind": "closed", "data": {}}

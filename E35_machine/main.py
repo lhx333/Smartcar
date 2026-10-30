@@ -13,6 +13,11 @@ class E35App:
         self.port=None; self.lock=threading.Lock(); self.events=queue.Queue(); self.tx=queue.Queue(); self.buf=""; self.count=0; self.imu_mode="未收到模式声明"; self.latest_state="未知"
         self.port_var=tk.StringVar(); self.baud=tk.StringVar(value="115200"); self.status=tk.StringVar(value="未连接"); self.summary=tk.StringVar(value="等待协议 v1 二进制遥测数据…")
         self.command_status=tk.StringVar(value="命令确认：等待上位机命令")
+        self.pwm_percent=tk.StringVar(value="25"); self.pwm_hold_s=tk.StringVar(value="5")
+        self.circle_yaw=tk.StringVar(value="45"); self.circle_servo=tk.StringVar(value="8"); self.circle_v1=tk.StringVar(value="0.4"); self.circle_v2=tk.StringVar(value="0.6")
+        self.start_mode=tk.StringVar(value="模块1：按PWM/时间")
+        self.pending_config=None
+        self.config_generation=0
         self.calibration=tk.StringVar(value="IMU 标定：连接串口后可启动")
         self.debug_status=tk.StringVar(value="按钮遥控：未启动"); self.debug_active=False
         self.manual_active=False; self.manual_focus_lost=False
@@ -41,6 +46,24 @@ class E35App:
         self.debug=ttk.Button(actions,text="手动遥控 DEBUG",command=lambda:self.control("DEBUG"),state="disabled"); self.debug.pack(side="left",padx=(0,8))
         self.calibrate=ttk.Button(actions,text="IMU 零偏标定",command=self.start_calibration,state="disabled"); self.calibrate.pack(side="left",padx=(0,8))
         ttk.Label(actions,textvariable=self.calibration,foreground="#344054").pack(side="left",padx=4)
+        pwmrow=ttk.Frame(conn); pwmrow.pack(fill="x",pady=(7,0))
+        ttk.Label(pwmrow,text="发车模式").pack(side="left")
+        ttk.Combobox(pwmrow,textvariable=self.start_mode,state="readonly",width=24,
+                     values=("模块1：按PWM/时间","模块4：按航向角/速度","其他模块：普通START")).pack(side="left",padx=(5,12))
+        ttk.Label(pwmrow,text="模块1开环 PWM (%)").pack(side="left")
+        ttk.Spinbox(pwmrow,from_=10,to=40,increment=1,textvariable=self.pwm_percent,width=5).pack(side="left",padx=(5,12))
+        ttk.Label(pwmrow,text="保持时间 (s)").pack(side="left")
+        ttk.Spinbox(pwmrow,from_=2,to=5,increment=1,textvariable=self.pwm_hold_s,width=4).pack(side="left",padx=5)
+        ttk.Label(pwmrow,text="到时 PWM 归零；舵机依据 IMU 和编码器修正直线",foreground="#667085").pack(side="left",padx=12)
+        circle_row=ttk.Frame(conn);circle_row.pack(fill="x",pady=(5,0))
+        ttk.Label(circle_row,text="模块4目标航向变化角 (°)").pack(side="left")
+        ttk.Spinbox(circle_row,from_=-90,to=90,increment=1,textvariable=self.circle_yaw,width=5).pack(side="left",padx=(5,12))
+        ttk.Label(circle_row,text="舵机偏角幅值 (°)").pack(side="left")
+        ttk.Spinbox(circle_row,from_=2,to=15,increment=1,textvariable=self.circle_servo,width=4).pack(side="left",padx=(5,12))
+        ttk.Label(circle_row,text="转弯速度 (m/s)").pack(side="left")
+        ttk.Spinbox(circle_row,from_=0.2,to=1.0,increment=0.1,textvariable=self.circle_v1,width=5).pack(side="left",padx=(5,12))
+        ttk.Label(circle_row,text="回正后直线速度 (m/s)").pack(side="left")
+        ttk.Spinbox(circle_row,from_=0.2,to=1.0,increment=0.1,textvariable=self.circle_v2,width=5).pack(side="left",padx=5)
         ttk.Label(conn,textvariable=self.debug_status,foreground="#246bfd").pack(anchor="w",pady=(8,0))
         ttk.Label(conn,textvariable=self.command_status,foreground="#18794e").pack(anchor="w",pady=(4,0))
         pad=ttk.LabelFrame(conn,text="手动操纵（按住按钮或键盘）",padding=6); pad.pack(anchor="w",pady=(8,0))
@@ -112,7 +135,7 @@ class E35App:
         self.debug.configure(state="normal")
         self.last_valid=0; self.pending_reading=None; self.count=0; self.bad_frames=0; self.missing_frames=0
         self.port=p; self.buf=""; self.status.set(f"已打开 {name} · {self.baud.get()} bps，等待数据")
-        self.conn_btn.configure(text="断开串口"); self.start.configure(state="normal"); self.stop.configure(state="normal"); self.calibrate.configure(state="normal"); self.calibration.set("IMU 标定：等待状态/可手动启动"); self.ports.configure(state="disabled"); self.baudbox.configure(state="disabled")
+        self.conn_btn.configure(text="断开串口"); self.start.configure(state="disabled"); self.stop.configure(state="normal"); self.calibrate.configure(state="normal"); self.calibration.set("IMU 标定：等待状态/可手动启动"); self.ports.configure(state="disabled"); self.baudbox.configure(state="disabled")
         self._log(f"[打开 {name}，{self.baud.get()} bps]\n","info"); self.reader_thread=threading.Thread(target=self._reader,args=(p,),daemon=True); self.reader_thread.start()
     def _reader(self,p):
         decoder=Decoder(); recorder=None; stalled=False; last=time.monotonic()
@@ -162,11 +185,57 @@ class E35App:
         if not self.port or not self.port.is_open: messagebox.showinfo("串口未连接","请先连接 E35 对应 COM 口。",parent=self.root); return
         self.tx.put((self.port,data,label))
     def control(self,cmd):
+        if cmd=="START" and self.start_mode.get()=="模块1：按PWM/时间":
+            cmd="START_PWM"
+        elif cmd=="START" and self.start_mode.get()=="模块4：按航向角/速度":
+            cmd="START_CIRCLE"
+        if cmd in ("START","START_PWM","START_CIRCLE") and self.latest_state!="ARMED":
+            self.command_status.set("发车未发送：请先完成零偏标定并等待 ARMED")
+            return
+        if cmd=="START_CIRCLE":
+            try:
+                angle=int(self.circle_yaw.get());servo=int(self.circle_servo.get());a=float(self.circle_v1.get());b=float(self.circle_v2.get())
+                v1=int(round(a*10));v2=int(round(b*10))
+                if str(angle)!=self.circle_yaw.get().strip() or str(servo)!=self.circle_servo.get().strip() or not(5<=abs(angle)<=90 and 2<=servo<=15 and 2<=v1<=10 and 2<=v2<=10) or abs(a-v1/10)>1e-6 or abs(b-v2/10)>1e-6:raise ValueError
+            except ValueError:
+                self.command_status.set("发车未发送：航向±5–90°、舵机幅值2–15°、速度0.2–1.0m/s")
+                return
+            self.start.configure(state="disabled")
+            self.pending_config=(f"{angle:+04d}",f"{servo:02d}",f"{v1:02d}",f"{v2:02d}")
+            self.config_generation+=1
+            self.command_status.set(f"等待小车确认航向 {angle}°、舵机 {servo}°、速度 {a:.1f}/{b:.1f} m/s")
+            self._send(f"C4,{angle:+04d},{servo:02d},{v1:02d},{v2:02d}\r\n".encode("ascii"),f"C4 yaw={angle:+04d} servo={servo:02d} v={v1:02d}/{v2:02d} [CRLF]")
+            self.root.after(2000,lambda generation=self.config_generation:self._config_timeout(generation))
+            return
+        if cmd=="START_PWM":
+            try:
+                pwm=int(self.pwm_percent.get()); hold=int(self.pwm_hold_s.get())
+                if str(pwm)!=self.pwm_percent.get().strip() or str(hold)!=self.pwm_hold_s.get().strip() or not(10<=pwm<=40 and 2<=hold<=5):
+                    raise ValueError
+            except ValueError:
+                self.command_status.set("发车未发送：模块1请选择整数 PWM 10–40% 和时间 2–5 秒")
+                return
+            self.start.configure(state="disabled")
+            self.pending_config=(pwm,hold)
+            self.config_generation+=1
+            self.command_status.set(f"等待小车确认 PWM {pwm}%、保持 {hold} 秒")
+            self._send(f"CONFIG,{pwm},{hold}\r\n".encode("ascii"),f"CONFIG PWM={pwm}% hold={hold}s [CRLF]")
+            self.root.after(2000,lambda generation=self.config_generation:self._config_timeout(generation))
+            return
+        if cmd=="START":
+            self.start.configure(state="disabled")
         if cmd=="DEBUG" and self.port and self.port.is_open:
             self.debug_status.set("按钮遥控：请求已发送，等待固件确认")
         if cmd=="STOP":
+            self.pending_config=None
             self._deactivate_manual("按钮遥控：已发送停车命令")
         self._send((cmd+"\r\n").encode("ascii"),cmd+" [CRLF]")
+
+    def _config_timeout(self,generation):
+        if self.pending_config is not None and generation==self.config_generation:
+            self.pending_config=None
+            self.command_status.set("参数确认超时，未发送 START；检查串口及固件版本")
+            self.start.configure(state="normal" if self.latest_state=="ARMED" else "disabled")
 
     def _deactivate_manual(self,status=None):
         self.manual_active=False
@@ -207,6 +276,7 @@ class E35App:
     def start_calibration(self):
         if self.latest_state == "RUN":
             messagebox.showinfo("暂不可标定","小车处于 RUN 状态。请先停车，再启动 IMU 零偏标定。",parent=self.root); return
+        self.start.configure(state="disabled")
         self.calibrate.configure(state="disabled")
         self.calibration.set("IMU 标定：命令已发送，等待固件确认")
         self._send(b"CALIBRATE\r\n","CALIBRATE [CRLF]")
@@ -228,6 +298,28 @@ class E35App:
         for raw in lines:
             line=raw.strip().lstrip("\ufeff")
             if not line:continue
+            if line.startswith("CONFIG,OK,"):
+                fields=line.split(",")
+                if len(fields)==4 and self.pending_config is not None:
+                    if (fields[2],fields[3])==tuple(map(str,self.pending_config)) and self.latest_state=="ARMED":
+                        self.pending_config=None
+                        self.command_status.set("参数回传一致，正在发送 START")
+                        self._send(b"START\r\n","START after CONFIG ACK [CRLF]")
+                    else:
+                        self.pending_config=None
+                        self.command_status.set("参数回传不一致或状态变化，未发车")
+                continue
+            if line.startswith("C4,OK,"):
+                fields=line.split(",")
+                if len(fields)==6 and self.pending_config is not None:
+                    if tuple(fields[2:])==self.pending_config and self.latest_state=="ARMED":
+                        self.pending_config=None
+                        self.command_status.set("模块4参数回传一致，正在发送 START")
+                        self._send(b"START\r\n","START after C4 ACK [CRLF]")
+                    else:
+                        self.pending_config=None
+                        self.command_status.set("模块4回传不一致或状态变化，未发车")
+                continue
             if line.startswith("RX,"):
                 fields=line.split(",")
                 if len(fields)==3 and fields[2]=="RECEIVED":
@@ -237,6 +329,11 @@ class E35App:
                         self.debug_status.set("按钮遥控：命令已收到，等待执行确认")
                     elif command=="CALIBRATE":
                         self.calibration.set("IMU 标定：命令已收到，等待标定状态")
+                elif len(fields)==3 and fields[1]=="START" and fields[2] in ("INVALID_PARAMS","WRONG_MODULE"):
+                    self.pending_config=None
+                    reason="参数超出范围或格式错误" if fields[2]=="INVALID_PARAMS" else "当前烧录固件不是模块1"
+                    self.command_status.set("参数发车未执行："+reason)
+                    self.start.configure(state="normal" if self.latest_state=="ARMED" else "disabled")
             elif line.startswith("CMD,"):
                 self.summary.set("控制回执："+line[4:])
                 if line.startswith("CMD,DEBUG,RUN,0"):
@@ -250,6 +347,12 @@ class E35App:
                     self.debug.configure(state="disabled"); self.start.configure(state="disabled")
                     self.debug_status.set("按钮遥控运行：按住方向按钮操纵；STOP 可立即停车")
                     self._manual_command()
+                elif line.startswith("CMD,START,RUN,0"):
+                    self.start.configure(state="disabled")
+                    self.calibration.set("IMU 标定：已完成；车辆正在运行")
+                elif line.startswith("CMD,REJECTED_START,"):
+                    self.start.configure(state="normal" if self.latest_state == "ARMED" else "disabled")
+                    self.command_status.set("命令确认：发车被固件拒绝；需先完成 IMU 标定并等待 ARMED")
                 elif line.startswith("CMD,REJECTED_DEBUG,"):
                     if not self.manual_active:
                         self._deactivate_manual("按钮遥控请求被拒绝："+line[4:]+"；请确认 ARMED，必要时先 STOP")
@@ -257,7 +360,7 @@ class E35App:
                     self.debug_active=False
                     self._deactivate_manual("按钮遥控：已手动停车")
                     self.debug.configure(state="normal" if self.port and self.port.is_open else "disabled")
-                    self.start.configure(state="normal" if self.port and self.port.is_open else "disabled")
+                    self.start.configure(state="disabled")
                 if line.startswith("CMD,REJECTED_CALIBRATE,"):
                     self.calibration.set("IMU 标定：固件拒绝（RUN 中或正在标定）")
                     self.calibrate.configure(state="disabled" if self.latest_state == "RUN" else "normal")
@@ -295,7 +398,9 @@ class E35App:
             self.debug_active=False
             self._deactivate_manual(f"按钮遥控已停车：故障码 {r['error']}（含遥控心跳超时）")
             self.debug.configure(state="normal" if self.port and self.port.is_open else "disabled")
-            self.start.configure(state="normal" if self.port and self.port.is_open else "disabled")
+            self.start.configure(state="disabled")
+        if self.port and self.port.is_open:
+            self.start.configure(state="normal" if self.latest_state=="ARMED" and not self.debug_active and self.pending_config is None else "disabled")
         if self.latest_state=="RUN": self.calibrate.configure(state="disabled")
         elif self.latest_state=="ARMED" and self.calibration.get().startswith("IMU 标定：等待状态"):
             self.calibration.set("IMU 标定：已完成")
@@ -310,7 +415,8 @@ class E35App:
         vals=tuple(f"{r[k]:.3f}" if isinstance(r[k],float) else r[k] for k in self.reading_cols)
         if self.tree.exists("latest"):self.tree.item("latest",values=vals)
         else:self.tree.insert("","end",iid="latest",values=vals)
-        self.summary.set(f"已解析 {self.count} 帧 · {r['state']} / 错误 {r['error']} · 丢失样本 {self.missing_frames} · 无效帧 {self.bad_frames} · 日志段 {r['segment']} · 舵机为指令偏移角，非实测前轮角")
+        error_name={0:"正常",1:"IMU 未标定",2:"发车时车轮在运动",3:"IMU 数据超时",4:"运行后轮速过低/堵转",5:"运行超时",6:"控制周期异常",7:"串口 DMA 故障",8:"串口接收错误",9:"遥控心跳超时"}.get(r['error'],"未知错误")
+        self.summary.set(f"已解析 {self.count} 帧 · {r['state']} / 错误 {r['error']}（{error_name}） · 丢失样本 {self.missing_frames} · 无效帧 {self.bad_frames} · 日志段 {r['segment']} · 舵机为指令偏移角，非实测前轮角")
     def _log(self,s,tag=""):
         self.log.configure(state="normal"); self.log.insert("end",s,tag); n=int(self.log.index("end-1c").split(".")[0])
         if n>1000:self.log.delete("1.0",f"{n-999}.0")
@@ -350,6 +456,7 @@ class E35App:
         for x in self.tree.get_children():self.tree.delete(x)
         self.count=0; self.pending_reading=None; self.imu_mode="未收到模式声明"; self.summary.set("已清空；等待协议 v1 二进制遥测数据…")
     def _disconnect(self):
+        self.pending_config=None
         self.debug.configure(state="disabled"); self.debug_active=False; self._deactivate_manual("按钮遥控：串口已断开；固件心跳超时后停车")
         with self.lock:
             p=self.port; self.port=None

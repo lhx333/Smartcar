@@ -1,5 +1,7 @@
 # 修改依据、实车边界与使用说明
 
+控制补丁及轨迹现在位于 `E:\CARcar\demo1\DEMO_new_path1`。`vehicle_config.json` 中的执行器、轨迹及 AUTO 速度 PID 参数通过该工程的编译前脚本同步。详细使用步骤及实际下载限制见固件目录 `README_new_path1.md`。
+
 ## 1. 原实现的关键问题
 
 - 原 DP 按路径长度和横向偏移惩罚选优，倾向贴桶；无解会把半径降至约 0.55 m。
@@ -36,7 +38,9 @@
 | alat | 0.65 m/s² | 横向加速度上限 |
 | mu / friction_use | 0.35 / 0.55 | 摩擦系数及采用比例 |
 | wheelbase | 0.26 m | 轴距假设 |
-| wheel_angle_deg | 22° | 归一化 turn=1 对应的实际车轮角假设 |
+| wheel_angle_deg | 15° | 归一化 turn=1 对应的实际车轮角假设，需独立于舵机摇臂标定 |
+| pwm_start_percent / pwm_max_percent | 13% / 25% | 发车首拍与驱动电机输出上限 |
+| servo_max_deg | 15° | 相对中位的舵机指令偏角上限，所有模式共用 |
 | steer_rate_deg_s | 35°/s | 实际车轮转动速度假设 |
 | lon_jerk / lat_jerk | 1.0 / 1.2 m/s³ | 加速度变化率 |
 | delay | 0.35 s | 提前降速窗口使用的响应时间 |
@@ -53,7 +57,7 @@
 
 ## 4. 控制补丁
 
-补丁针对历史基线固件制作，保存在本目录 `firmware_patch`。它不属于 `DEMO_new_path1` 的自动构建链路；使用前必须核对原文件 SHA256 并确认目标固件基线。
+补丁基于 `E:\CARcar\step31\Smartcar-main\firmware\demo\DEMO` 的 SHA256 快照，放在本文件夹 `firmware_patch`。现已按请求接入同级 `DEMO_new_path1`；原 `DEMO` 保留原路线。车体模型参数仍有待实测。
 
 - 保持现有 5 ms 周期和状态机的停止/超时保护。
 - 弧长局部投影，按距离搜索而非固定六个点，并约束单拍进度，降低误跳回程路径的概率。
@@ -61,18 +65,18 @@
 - 几何转向 `k_pp=2*y_body/L_chord²`，`turn_geom=atan(Lwheel*k_pp)/wheel_angle_at_turn1`。
 - 阻尼改为 `turn=turn_geom + 0.004*(v*k_pp - filtered_gyro)*180/pi`，角速度低通时间常数 30 ms。正常弯道需要的角速度不再被当作扰动一律抑制。
 - 不再叠加原 `KP_YAW=0.030` 的航向 P，也不添加航向 I。几何 PP 本身已经提供航向/横向反馈；原增益不能直接与新控制器等同。
-- 自动模式每轮改为增量 PI，起调值 P=6、I=3、D=0，单位为占空比百分点/(m/s) 及占空比百分点/(m/s*s)。饱和输出作为下一拍积分状态；保留原轮间占空比差限制。手动调试模式保持原逻辑。
+- 自动模式每轮使用增量 PID，起调值 P=6、I=3、D=0，从 `vehicle_config.json` 生成到固件。P、I、D 的单位分别为占空比百分点/(m/s)、占空比百分点/(m/s*s)、占空比百分点*s/(m/s)。饱和输出作为下一拍积分状态；保留原轮间占空比差限制。手动调试模式保持原逻辑。
 - 横向误差过大或转向逼近饱和时降低速度；超过 0.35 m 跟踪误差或约 70° 航向偏差触发现有故障停止。复用 CONTROL_OVERRUN 故障码，应结合遥测判断，不表示每次都是计算超时。
 
-PI 值是待标定的起调值，未通过真实电机模型辨识。仿真里的速度一阶模型没有模拟电机 PWM、静摩擦和编码器量化，因此不能当作 PI 整定验收。两轮仍用同一中心速度参考，尚未加入轮距对应的内外轮差速分配。
+PID 值是待标定的起调值，未通过真实电机模型辨识。仿真里的速度一阶模型没有模拟电机 PWM、静摩擦和编码器量化，因此不能当作 PID 整定验收。D 项使用误差二阶差分，实车开启前应检查测速噪声。两轮仍用同一中心速度参考，尚未加入轮距对应的内外轮差速分配。
 
-在确认实际工程就是该基线且校准上述参数后，应用命令为：
+当前工程已经完成 C 控制器集成，后续更新配置或轨迹使用：
 
 ```powershell
-python -B apply_firmware_patch.py --firmware <目标固件目录> --trajectory out_robust
+python -B prepare_firmware.py --firmware "E:\CARcar\demo1\DEMO_new_path1"
 ```
 
-脚本检查原文件 SHA256，不一致就拒绝覆盖；先保存备份再写入。新生成的 `robust_trajectory.h` 需随补丁一并更新。只复制 `path_array.txt` 不会启用速度表。全表约 53 KB 常量数据，需检查 Keil 链接内存报告。补丁未经过完整 Keil 编译和板上试跑。
+`prepare_firmware.py` 会核对输入和导出文件 SHA256，并在需要时重算路径；它同步生成头文件，不覆盖手写 C 源码。`apply_firmware_patch.py` 保留为原始基线的历史应用工具，不应重复用于已集成版本。只复制 `path_array.txt` 不会启用速度表。全表约 53 KB 常量数据，已通过新版 Keil 链接；尚未做板上试跑。
 
 ## 5. 零偏与鲁棒性验证
 
@@ -82,7 +86,7 @@ python -B apply_firmware_patch.py --firmware <目标固件目录> --trajectory o
 
 当前输入的名义路径：长约 54.56 m，最小半径约 1.229 m，最近桶中心距离约 0.761 m，峰值速度约 0.594 m/s；过计时线估计约 101.37 s，全程到停车参考点约 104.13 s。相比原始 51.04 m 路径更长，目标是提高容错；不能把原先恒定 1 m/s 的理想时间与新约束下的时间当作公平的速度提升证明。
 
-无零偏模型完成约 103.7 s，最大估计横向误差约 2.2 cm；0.005°/s 和 0.01°/s 扰动案例保留净空。0.05°/s 案例真实轨迹发生包络接触，0.1/0.2°/s 更差，而估计轨迹看起来仍然正常。此失败结果保存在 simulation_report.json。参数/模型更改后必须重跑，不能推广为任意地面都安全。
+更新为满 turn 对应前轮 15° 后，无零偏简化模型完成约 108.4 s，最大估计横向误差约 2.14 cm。完整扰动案例以重新生成的 simulation_report.json 为准；0.05°/s 的既有失败检查仍保留。仿真现在从导出轨迹的 dynamics 读取前轮角、轴距、加减速和转向速率，避免沿用旧的 22° 硬编码。不能据此推广为任意地面都安全。
 
 长路线仅用编码器+陀螺积分，无法从路径误差独立识别真实零偏；静止校准、舵机中位和轮径标定是基本条件。若残余偏置预算无法满足，需要视觉/外部航向/路标等独立观测，或缩短定位重校准间隔。没有传感器接口和观测数据，本补丁没有虚构传感器融合。
 
@@ -90,7 +94,7 @@ python -B apply_firmware_patch.py --firmware <目标固件目录> --trajectory o
 
 ```powershell
 python -B path_planner.py --input barrels_input.csv --out out_robust
-gcc -std=c99 -O2 -Wall -Wextra -Werror -shared -o firmware_patch/controller_test.dll firmware_patch/host_bridge.c -I out_robust -lm
+gcc -std=c99 -O2 -Wall -Wextra -Werror -shared -o firmware_patch/controller_test.dll firmware_patch/host_bridge.c -I "E:/CARcar/demo1/DEMO_new_path1/user/inc" -lm
 python -B simulate_tracking.py
 python -B -m unittest -v test_robust_planner
 python -B plot_results.py

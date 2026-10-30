@@ -54,6 +54,8 @@ can therefore mean a skipped firmware sample/send or link loss, not just radio l
 
 UTF-8 event text, usually CRLF terminated, inside the same CRC/COBS envelope.
 Examples: BOOT,PROTO1,5MS,200HZ; RX,START,RECEIVED; CMD,START,RUN,0;
+START sent before the controller reaches ARMED is rejected with
+CMD,REJECTED_START,<state>,<error>; calibrate first and wait for ARMED.
 CALIBRATION,PROGRESS,50. Existing command/calibration UI behavior is retained.
 
 ## Type 3: diagnostics, 1 Hz
