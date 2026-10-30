@@ -1,12 +1,12 @@
 # 新路径固件 DEMO_new_path1
 
-本版本使用 `E:\CARcar\path_planner\barrels_input.csv` 的 8 个桶坐标规划绕桶、掉头和回程，不再使用原 3 m + U 型弯 + 3 m 路径。当前轨迹为 2187 点，长约 54.557 m，停车参考点为发车局部坐标 (-0.6, 2.0) m。
+本版本使用 `path_planner2/barrels_input.csv` 的 8 个桶坐标规划绕桶、掉头和回程，不再使用原 3 m + U 型弯 + 3 m 路径。当前轨迹为 2187 点，长约 54.557 m，停车参考点为发车局部坐标 (-0.6, 2.0) m。
 
 Python 在电脑上搜索几何路径、平滑并规划速度/前视；完整结果导出为 C 常量表。小车运行时由 C 程序执行编码器/IMU 航迹推算、动态前视 Pure Pursuit 转向、角速度阻尼、轨迹速度插值和每轮 PI 调速，不需要连接 Python。
 
 ## 参数与重新编译
 
-参数唯一输入为 `E:\CARcar\path_planner\vehicle_config.json`：
+参数唯一输入为 `path_planner2/vehicle_config.json`：
 
 | 键 | 当前值 | 含义 |
 | --- | --- | --- |
@@ -27,7 +27,7 @@ Python 在电脑上搜索几何路径、平滑并规划速度/前视；完整结
 也可在终端先运行：
 
 ```powershell
-& 'D:\Python1\python.exe' -B 'E:\CARcar\path_planner\prepare_firmware.py'
+python -B path_planner2/prepare_firmware.py --firmware firmware/demo/DEMO_new_path1
 ```
 
 ## 源码与输出

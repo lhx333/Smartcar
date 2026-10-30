@@ -6,7 +6,7 @@
   "mu": 0.35,
   "friction_use": 0.55,
   "wheelbase": 0.26,
-  "wheel_angle_deg": 22.0,
+  "wheel_angle_deg": 15.0,
   "steer_rate_deg_s": 35.0,
   "lat_jerk": 1.2,
   "lon_jerk": 1.0,
@@ -28,5 +28,11 @@
   "bounds": null,
   "residual_bias_dps": 0.005,
   "initial_heading_deg": 0.1,
-  "initial_position_m": 0.03
+  "initial_position_m": 0.03,
+  "pwm_start_percent": 13.0,
+  "pwm_max_percent": 25.0,
+  "servo_max_deg": 15.0,
+  "speed_kp": 6.0,
+  "speed_ki": 3.0,
+  "speed_kd": 0.0
 }

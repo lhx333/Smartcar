@@ -1,20 +1,25 @@
 {
-  "config_source": "E:\\CARcar\\path_planner\\vehicle_config.json",
+  "config_source": "path_planner2/vehicle_config.json",
   "inputs": {
     "barrels_input.csv": "e3712a8f5cf2947880aa0e73f0cedf178ac8aafd57f3ae3de52056e8ad6df16a",
-    "vehicle_config.json": "4cabece35a805e19b0d56e4a1c59ac0da9f10b67ee52b28ef38e3efbdf4564dc",
+    "vehicle_config.json": "2cba57073ae900a3e74cbbfeb24c446281a4051cc2ba467e9e866f7764fc168b",
     "path_planner.py": "71ad669ab1c78c115a03b0f9b39a457b0c313acbb087c03107ae11162c1f4ca6",
-    "robust_planner.py": "29ddae7a04cf86d65c36285428166b3df71e19fe60e1abb82c7f9e7e241c42dc"
+    "robust_planner.py": "1c85e4c470dcaa755293af55b803c5a9cf191cd75085bfc2ae9063790e2a69cf"
   },
   "pwm_start_percent": 13.0,
   "pwm_max_percent": 25.0,
   "servo_max_deg": 15.0,
+  "speed_pid": {
+    "kp": 6.0,
+    "ki": 3.0,
+    "kd": 0.0
+  },
   "wheel_angle_deg_assumed_at_full_turn": 15.0,
   "trajectory_summary": {
-    "length_m": 54.55738295612689,
-    "outbound_length_m": 26.759572408649326,
+    "length_m": 54.55738295612687,
+    "outbound_length_m": 26.759572408649337,
     "uturn_length_m": 4.384483074352442,
-    "return_length_m": 23.41332747312512,
+    "return_length_m": 23.413327473125094,
     "min_clearance_m": 0.7609112383249509,
     "nearest_obstacle_index": 0,
     "max_gate_offset_m": 0.8,
@@ -48,23 +53,23 @@
       1
     ],
     "field_bounds_checked": false,
-    "min_clearance_after_error_budget_m": 0.0758090214486879,
-    "final_position_error_bound_m": 0.3820043668538156,
+    "min_clearance_after_error_budget_m": 0.07580902144868804,
+    "final_position_error_bound_m": 0.38200436685381456,
     "assumed_residual_bias_dps": 0.005,
-    "predicted_total_time_s": 104.12540667879361,
-    "score": 110.902835605577,
+    "predicted_total_time_s": 104.12540667879335,
+    "score": 110.90283560555999,
     "score_type": "heuristic seconds, NOT calibrated expected race penalty",
     "radius_candidate_m": 1.2,
     "max_lateral_accel_mps2": 0.2293129895684554,
-    "max_lateral_jerk_mps3": 0.30995733455844915,
+    "max_lateral_jerk_mps3": 0.309957334558581,
     "max_longitudinal_jerk_mps3": 0.997002999000011,
     "max_steer_rate_deg_s": 18.85568590299655,
     "peak_speed_mps": 0.5939605953026558,
     "time_dilation_factor": 0.6737179217005685,
-    "predicted_finish_line_time_s": 101.37205896455418
+    "predicted_finish_line_time_s": 101.37205896455393
   },
   "generated_headers": {
-    "vehicle_params.h": "ee57fd39609bf5dbf0b3fa52f80763b44e7c2f189e573d1a4f7fd88a9cdf9224",
-    "robust_trajectory.h": "111191d6cdb05c406da14544b5599213ae176465a480dd77aa3a095ab49a0a07"
+    "vehicle_params.h": "2a53050694f72b57444672c422b774a0b9145c466b62cd402529cd572157d563",
+    "robust_trajectory.h": "d55d1ff9873b45631af9a021313bf6b92b811d0372a61c580c76113337b88b71"
   }
 }

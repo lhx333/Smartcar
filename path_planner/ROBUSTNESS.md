@@ -53,7 +53,7 @@
 
 ## 4. 控制补丁
 
-补丁基于 `E:\CARcar\step31\Smartcar-main\firmware\demo\DEMO` 的 SHA256 快照，放在本文件夹 `firmware_patch`，没有擅自写入旧工程。尚未收到当前烧录工程和车体参数的确认。
+补丁针对历史基线固件制作，保存在本目录 `firmware_patch`。它不属于 `DEMO_new_path1` 的自动构建链路；使用前必须核对原文件 SHA256 并确认目标固件基线。
 
 - 保持现有 5 ms 周期和状态机的停止/超时保护。
 - 弧长局部投影，按距离搜索而非固定六个点，并约束单拍进度，降低误跳回程路径的概率。
@@ -69,7 +69,7 @@ PI 值是待标定的起调值，未通过真实电机模型辨识。仿真里�
 在确认实际工程就是该基线且校准上述参数后，应用命令为：
 
 ```powershell
-python -B apply_firmware_patch.py --firmware "E:\CARcar\step31\Smartcar-main\firmware\demo\DEMO" --trajectory out_robust
+python -B apply_firmware_patch.py --firmware <目标固件目录> --trajectory out_robust
 ```
 
 脚本检查原文件 SHA256，不一致就拒绝覆盖；先保存备份再写入。新生成的 `robust_trajectory.h` 需随补丁一并更新。只复制 `path_array.txt` 不会启用速度表。全表约 53 KB 常量数据，需检查 Keil 链接内存报告。补丁未经过完整 Keil 编译和板上试跑。
